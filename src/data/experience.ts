@@ -12,19 +12,9 @@ export const experienceData: Experience[] = [
   {
     date: "Summer 2023",
     title: "Research Intern",
-    company: "DeepMind",
+    company: "Economics Department at Harvard",
     description:
-      "Developed novel algorithms for causal structure learning in reinforcement learning settings",
-    advisor: "Peter Wang",
-    companyUrl: "https://deepmind.com",
-  },
-  {
-    date: "Summer 2022",
-    title: "Research Intern",
-    company: "Google Research",
-    description:
-      "Worked on improving robustness of large language models to distribution shifts",
-    manager: "Elise Brown",
-    companyUrl: "https://google.com",
+      "Developed tools for counterfactual estimation in binary games",
+    advisor: "Elie Tamer",
   },
 ];
