@@ -14,7 +14,7 @@ export const experienceData: Experience[] = [
     title: "Research Intern",
     company: "Economics Department at Harvard",
     description:
-      "Developed tools for counterfactual estimation in binary games",
-    advisor: "Elie Tamer",
+      "Developed tools for counterfactual estimation in binary games.",
+    advisor: "Prof. Elie Tamer",
   },
 ];

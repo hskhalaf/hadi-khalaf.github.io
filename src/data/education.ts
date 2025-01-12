@@ -19,6 +19,7 @@ export const educationData: Education[] = [
     year: "2020—2024",
     institution: "American University of Beirut",
     degree: "B.S. in Statistics and B.E. in Computer Engineering",
+    advisor: "Prof. Ibrahim Abou Faycal",
     // thesis: "Algorithmic Approaches to Causal Discovery",
     // Optional links to thesis
     // thesisUrl: "https://dspace.mit.edu/handle/1721.1/149111"
