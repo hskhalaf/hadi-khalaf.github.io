@@ -3,17 +3,22 @@ export interface QuestionData {
     description: string;
   }
   
-  export const questionsData: QuestionData[] = [
+export const questionsData: QuestionData[] = [
     {
-      title: "LLM Alignment Robustness",
-      description: "How can we develop alignment techniques that remain stable across different model architectures and scales?"
+      title: "Nuanced Pairwise Preferences",
+      description: "Do pairwise methods adequately capture subtle and diverse human values?"
     },
     {
-      title: "Transparency in LLMs",
-      description: "What tools can we build to better understand the decision-making process of large language models?"
+      title: "Auditable Reward Models",
+      description: "How might reward models function as robust and transparent AI auditing tools?"
     },
-    {
-      title: "Alignment Metrics",
-      description: "How do we quantitatively measure and validate the effectiveness of different alignment approaches?"
-    }
+      {
+        title: "Scalable Oversight via Targeted Human Feedback",
+        description: "How can we design systems where infrequent yet targeted human feedback steers LLMs towards effective alignment?"
+      },
+      {
+        title: "Multi-Agent Alignment in Complex Systems",
+        description: "How can we ensure aligned behavior in systems with multiple interacting AI agents with conflicting objectives?"
+      },
   ];
+  
