@@ -11,6 +11,8 @@ import { experienceData } from "@/data/experience";
 import { PortfolioEntry } from "@/components/portfolio-entry";
 import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
+import { QuestionsEntry } from "@/components/questions-entry";
+import { questionsData } from "@/data/questions";
 
 export default function Home() {
   return (
@@ -128,6 +130,21 @@ export default function Home() {
                       </section>
                     )
                   );
+                  case Section.Questions:
+                    return (
+                      questionsData.length > 0 && (
+                        <section key={sectionName}>
+                          <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
+                            Questions I'm Thinking About
+                          </h2>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {questionsData.map((question, index) => (
+                              <QuestionsEntry key={index} question={question} />
+                            ))}
+                          </div>
+                        </section>
+                      )
+                    );
                 default:
                   return null;
               }
