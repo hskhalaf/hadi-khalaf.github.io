@@ -34,15 +34,15 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
         </div>
       )}
       <div className="w-2/3 md:w-full">
-        <h1 className="font-serif text-3xl font-light tracking-wide mb-3">
+        <h1 className="font-serif text-4xl md:text-5xl font-light tracking-wide mb-4">
           {aboutMe.name}
         </h1>
         {aboutMe.altName && (
-          <p className="text-zinc-600 text-md leading-relaxed tracking-wide mb-6">
+          <p className="text-zinc-600 text-lg leading-relaxed tracking-wide mb-6">
             {aboutMe.altName}
           </p>
         )}
-        {/* <p className="text-zinc-600 text-xs leading-relaxed tracking-wide uppercase mb-6">
+        {/* <p className="text-zinc-600 text-sm leading-relaxed tracking-wide uppercase mb-8">
           {aboutMe.title}
           <br />
           {aboutMe.institutionUrl ? (
@@ -58,16 +58,16 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             aboutMe.institution
           )}
         </p> */}
-        <div className="flex gap-6 mb-6">
+        <div className="flex gap-6 mb-8">
           {aboutMe.blogUrl && (
             <a
               href={aboutMe.blogUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
               target="_blank"
               rel="noopener noreferrer"
             >
               <ArrowUpRight
-                size={12}
+                size={14}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
               <span className="tracking-wider uppercase">Blog</span>
@@ -76,26 +76,26 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           {aboutMe.cvUrl && (
             <a
               href={aboutMe.cvUrl}
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+              className="group inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
               target="_blank"
               rel="noopener noreferrer"
             >
               <ArrowUpRight
-                size={12}
+                size={14}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
               <span className="tracking-wider uppercase">CV</span>
             </a>
           )}
         </div>
-        <div className="space-y-2">
+        <div className="space-y-3">
           <a
             href={`mailto:${aboutMe.email}`}
-            className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+            className="inline-flex items-center gap-3 text-base text-zinc-600 hover:text-zinc-900 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Mail size={14} />
+            <Mail size={16} />
             {aboutMe.email}
           </a>
           {aboutMe.googleScholarUrl && (
@@ -103,11 +103,11 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
               <br />
               <a
                 href={aboutMe.googleScholarUrl}
-                className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+                className="inline-flex items-center gap-3 text-base text-zinc-600 hover:text-zinc-900 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <GraduationCap size={14} />
+                <GraduationCap size={16} />
                 Google Scholar
               </a>
             </>
@@ -117,11 +117,11 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
               <br />
               <a
                 href={`https://twitter.com/${aboutMe.twitterUsername}`}
-                className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+                className="inline-flex items-center gap-3 text-base text-zinc-600 hover:text-zinc-900 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Twitter size={14} />@{aboutMe.twitterUsername}
+                <Twitter size={16} />@{aboutMe.twitterUsername}
               </a>
             </>
           )}
@@ -130,11 +130,11 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
               <br />
               <a
                 href={`https://github.com/${aboutMe.githubUsername}`}
-                className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+                className="inline-flex items-center gap-3 text-base text-zinc-600 hover:text-zinc-900 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Github size={14} />
+                <Github size={16} />
                 github.com/{aboutMe.githubUsername}
               </a>
             </>
@@ -144,11 +144,11 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
               <br />
               <a
                 href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
-                className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+                className="inline-flex items-center gap-3 text-base text-zinc-600 hover:text-zinc-900 transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin size={14} />
+                <Linkedin size={16} />
                 linkedin.com/in/{aboutMe.linkedinUsername}
               </a>
             </>
