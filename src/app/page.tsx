@@ -93,8 +93,8 @@ export default function Home() {
                           <div className="relative">
                             <h3 className="font-serif text-xl text-blue-900 mb-2">Recent Research</h3>
                             <p className="text-blue-800/80 leading-relaxed">
-                              Exploring AI alignment through the lens of discretion and reward hacking. 
-                              <span className="font-medium"> Click on any paper below to dive deeper.</span>
+                              I am currently designing better ways to align and evaluate AI systems. 
+                              <span className="font-medium"> Click on any paper or email me to learn more!</span>
                             </p>
                           </div>
                         </div>

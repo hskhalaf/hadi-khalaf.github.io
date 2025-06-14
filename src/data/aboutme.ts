@@ -23,7 +23,7 @@ export const aboutMe: AboutMe = {
   // institution: "Harvard University",
   // Note that links work in the description
   description:
-    "I'm a first-year Computer Science PhD student at Harvard. My research focuses on developing robust and transparent tools for AI alignment.",
+    "I'm a first-year Computer Science PhD student at Harvard. My research focuses on developing robust and transparent tools for AI post-training.",
   email: "hadikhalaf@g.harvard.edu",
   imageUrl: "/image0.png",
   googleScholarUrl: "https://scholar.google.com/citations?user=IxeWGPAAAAAJ&hl=en&oi=ao",
