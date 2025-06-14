@@ -40,7 +40,10 @@ export function PublicationEntry({
           )}
         </div>
         <h3 className="font-serif text-md mb-3">{publication.title}</h3>
-        <p className="text-sm text-zinc-600 mb-4">{publication.authors}</p>
+        <p 
+          className="text-sm text-zinc-600 mb-4"
+          dangerouslySetInnerHTML={{ __html: publication.authors }}
+        />
         
         {publication.tldr && (
           <div className="mb-4">

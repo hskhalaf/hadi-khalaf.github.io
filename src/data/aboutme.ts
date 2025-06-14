@@ -25,7 +25,7 @@ export const aboutMe: AboutMe = {
   description:
     "I'm a first-year Computer Science PhD student at Harvard. My research focuses on developing robust and transparent tools for AI alignment.",
   email: "hadikhalaf@g.harvard.edu",
-  imageUrl: "image0.png",
+  imageUrl: "/image0.png",
   googleScholarUrl: "https://scholar.google.com/citations?user=IxeWGPAAAAAJ&hl=en&oi=ao",
   githubUsername: "hskhalaf",
   linkedinUsername: "hadikhalaf",
