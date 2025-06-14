@@ -17,7 +17,7 @@ export const publicationData: Publication[] = [
     year: "2025",
     conference: "Preprint",
     title: "Inference-Time Reward Hacking in Large Language Models",
-    authors: "<strong>Hadi Khalaf</strong>, Claudio Mayrink Verdun, Alex Oesterling, Himabindu Lakkaraju, Flavio du Pin Calmon",
+    authors: "Hadi Khalaf, Claudio Mayrink Verdun, Alex Oesterling, Himabindu Lakkaraju, Flavio du Pin Calmon",
     paperUrl: "https://github.com/hskhalaf/hedging/blob/main/Inference%20time%20reward%20hacking%20in%20large%20language%20models.pdf",
     codeUrl: "https://github.com/hskhalaf/hedging",
     tldr: "We characterize reward hacking in inference-time alignment methods like Best-of-n, introduce Best-of-Poisson as an efficient approximation of the optimal RLHF solution, and present HedgeTune to mitigate reward hacking through strategic hedging.",
@@ -25,11 +25,11 @@ export const publicationData: Publication[] = [
   },
   {
     year: "2025",
-    conference: "ACM Conference on Fairness, Accountability, and Transparency (FAccT) 2025",
+    conference: "ACM Conference on Fairness, Accountability, and Transparency (FAccT)",
     title: "AI Alignment at Your Discretion",
-    authors: "Maarten Buyl, <strong>Hadi Khalaf</strong>, Claudio Mayrink Verdun, Lucas Monteiro Paes, Caio C. Vieira Machado, Flavio du Pin Calmon",
+    authors: "Maarten Buyl, Hadi Khalaf, Claudio Mayrink Verdun, Lucas Monteiro Paes, Caio C. Vieira Machado, Flavio du Pin Calmon",
     paperUrl: "https://arxiv.org/abs/2502.10441",
-    tldr: "We formalize the concept of 'alignment discretion' - the latitude given to annotators in judging AI outputs - and show how we risk deploying unsafe AI systems if we ignore their discretion.",
+    tldr: "We formalize discretion in alignment as the latitude given to annotators in judging AI outputs and show that we risk deploying unsafe AI systems if we ignore their discretion.",
     award: "🏆 Best Paper Award at the New England NLP Workshop",
     abstract: "In AI alignment, extensive latitude must be granted to annotators, either human or algorithmic, to judge which model outputs are 'better' or 'safer.' We refer to this latitude as alignment discretion. Such discretion remains largely unexamined, posing two risks: (i) annotators may use their power of discretion arbitrarily, and (ii) models may fail to mimic this discretion. To study this phenomenon, we draw on legal concepts of discretion that structure how decision-making authority is conferred and exercised, particularly in cases where principles conflict or their application is unclear or irrelevant. Extended to AI alignment, discretion is required when alignment principles and rules are (inevitably) conflicting or indecisive. We present a set of metrics to systematically analyze when and how discretion in AI alignment is exercised, such that both risks (i) and (ii) can be observed. Moreover, we distinguish between human and algorithmic discretion and analyze the discrepancy between them. By measuring both human and algorithmic discretion over safety alignment datasets, we reveal layers of discretion in the alignment process that were previously unaccounted for. Furthermore, we demonstrate how algorithms trained on these datasets develop their own forms of discretion in interpreting and applying these principles, which challenges the purpose of having any principles at all. Our paper presents the first step towards formalizing this core gap in current alignment processes, and we call on the community to further scrutinize and control alignment discretion."
   }
