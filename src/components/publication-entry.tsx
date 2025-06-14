@@ -13,7 +13,8 @@ export function PublicationEntry({
   const [isAbstractExpanded, setIsAbstractExpanded] = useState(false);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-6">
+    <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md hover:border-zinc-200 transition-all duration-300">
+      <div className="flex flex-col sm:flex-row gap-6">
       {publication.imageUrl && (
         <div className="w-full sm:w-1/4 min-w-[160px] relative">
           <Image
@@ -121,6 +122,7 @@ export function PublicationEntry({
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 }

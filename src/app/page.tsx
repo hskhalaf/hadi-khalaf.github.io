@@ -16,26 +16,26 @@ import { questionsData } from "@/data/questions";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#FFFCF8]">
-      {/* Don't have a great call on whether max-w-screen-xl is better */}
+    <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-[#FFFCF8]">
       <div className="max-w-screen-lg mx-auto px-8 py-24">
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-2">
-          {/* Left Column - Fixed Info */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          {/* Left Column - Fixed Info with background */}
           <div className="col-span-12 md:col-span-4 space-y-12 mb-8 md:mb-0">
-            {/* Profile */}
             <div className="md:sticky top-12 space-y-8">
-              <ProfileSection aboutMe={aboutMe} />
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-zinc-100/50">
+                <ProfileSection aboutMe={aboutMe} />
+              </div>
             </div>
           </div>
 
-          {/* Right Column - Scrolling Content */}
-          <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-24">
-            {/* About section is typically first */}
+          {/* Right Column - Scrolling Content with more spacing */}
+          <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-20">
+            {/* About section */}
             {aboutMe.description && (
               <section>
                 <p
-                  className="font-serif text-md leading-relaxed text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600"
+                  className="font-serif text-lg leading-relaxed text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600"
                   dangerouslySetInnerHTML={{ __html: aboutMe.description }}
                 />
               </section>
@@ -43,14 +43,14 @@ export default function Home() {
 
             {/* Map through sectionOrder to render sections in correct order */}
             {sectionOrder.map((sectionName) => {
-              // Most of this is redundant... but in case it needs to be unique.
               switch (sectionName) {
                 case Section.News:
                   return (
                     newsData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="font-serif text-l mb-12 tracking-wide uppercase">
-                          News
+                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
+                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">News</span>
+                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
                         </h2>
                         <div className="space-y-12">
                           {newsData.map((news, index) => (
@@ -66,8 +66,9 @@ export default function Home() {
                   return (
                     educationData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="font-serif text-zinc-700 mb-12 tracking-wide uppercase">
-                          Education
+                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
+                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Education</span>
+                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
                         </h2>
                         <div className="space-y-12">
                           {educationData.map((education, index) => (
@@ -81,16 +82,27 @@ export default function Home() {
                   return (
                     publicationData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="font-serif text-l mb-12 tracking-wide uppercase">
-                          Publications
+                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
+                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Publications</span>
+                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
                         </h2>
-                        <div className="space-y-12">
+                        
+                        {/* Special attention-grabbing element for publications */}
+                        <div className="mb-12 p-6 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 rounded-xl border border-blue-100/50 relative overflow-hidden">
+                          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-2xl"></div>
+                          <div className="relative">
+                            <h3 className="font-serif text-xl text-blue-900 mb-2">Recent Research</h3>
+                            <p className="text-blue-800/80 leading-relaxed">
+                              Exploring AI alignment through the lens of discretion and reward hacking. 
+                              <span className="font-medium"> Click on any paper below to dive deeper.</span>
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="space-y-8">
                           {publicationData.map((publication, index) => (
                             <div key={index}>
                               <PublicationEntry publication={publication} />
-                              {index < publicationData.length - 1 && (
-                                <div className="h-px bg-zinc-200 my-8" />
-                              )}
                             </div>
                           ))}
                         </div>
@@ -101,8 +113,9 @@ export default function Home() {
                   return (
                     experienceData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
-                          Experience
+                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
+                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Experience</span>
+                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
                         </h2>
                         <div className="space-y-12">
                           {experienceData.map((experience, index) => (
@@ -119,8 +132,9 @@ export default function Home() {
                   return (
                     portfolioData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
-                          Portfolio
+                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
+                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Portfolio</span>
+                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
                         </h2>
                         <div className="space-y-12">
                           {portfolioData.map((portfolio, index) => (
@@ -130,21 +144,22 @@ export default function Home() {
                       </section>
                     )
                   );
-                  case Section.Questions:
-                    return (
-                      questionsData.length > 0 && (
-                        <section key={sectionName}>
-                          <h2 className="font-serif text-md mb-12 tracking-wide uppercase">
-                            Questions I&apos;m Thinking About
-                          </h2>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {questionsData.map((question, index) => (
-                              <QuestionsEntry key={index} question={question} />
-                            ))}
-                          </div>
-                        </section>
-                      )
-                    );
+                case Section.Questions:
+                  return (
+                    questionsData.length > 0 && (
+                      <section key={sectionName}>
+                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
+                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Questions I&apos;m Thinking About</span>
+                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                          {questionsData.map((question, index) => (
+                            <QuestionsEntry key={index} question={question} />
+                          ))}
+                        </div>
+                      </section>
+                    )
+                  );
                 default:
                   return null;
               }
