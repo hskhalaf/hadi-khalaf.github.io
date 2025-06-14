@@ -1,28 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Serif, PT_Serif } from "next/font/google";
+import { Inter, Lora, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { aboutMe } from "@/data/aboutme";
 import { customMetadata } from "@/data/title-description";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const lora = Lora({
+  variable: "--font-lora", 
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const notoSerif = Noto_Serif({
-  variable: "--font-noto-serif",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-
-const ptSerif = PT_Serif({
-  variable: "--font-pt-serif",
-  subsets: ["latin"],
-  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -41,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${notoSerif.variable} ${ptSerif.variable} antialiased`}
+        className={`${inter.variable} ${lora.variable} ${geistMono.variable} antialiased`}
       >
         <main className="">{children}</main>
         <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-[#FFFCF8]">

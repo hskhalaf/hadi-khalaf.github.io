@@ -39,15 +39,15 @@ export function PublicationEntry({
             </div>
           )}
         </div>
-        <h3 className="font-serif text-md mb-3">{publication.title}</h3>
+        <h3 className="font-serif text-lg md:text-xl mb-3 leading-relaxed">{publication.title}</h3>
         <p 
-          className="text-sm text-zinc-600 mb-4"
+          className="text-base text-zinc-600 mb-4"
           dangerouslySetInnerHTML={{ __html: publication.authors }}
         />
         
         {publication.tldr && (
           <div className="mb-4">
-            <p className="text-sm italic text-zinc-600 mb-2">
+            <p className="text-base italic text-zinc-600 mb-2">
               <span className="font-medium text-zinc-700">TL;DR:</span> {publication.tldr}
             </p>
           </div>
@@ -57,7 +57,7 @@ export function PublicationEntry({
           <div className="mb-4">
             <button
               onClick={() => setIsAbstractExpanded(!isAbstractExpanded)}
-              className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors duration-200"
+              className="flex items-center gap-2 text-base text-zinc-600 hover:text-zinc-900 transition-colors duration-200"
             >
               <span className="font-medium">Abstract</span>
               {isAbstractExpanded ? (
@@ -68,7 +68,7 @@ export function PublicationEntry({
             </button>
             {isAbstractExpanded && (
               <div className="mt-2 p-3 bg-zinc-50 rounded-md border-l-2 border-zinc-200">
-                <p className="text-sm text-zinc-700 leading-relaxed">
+                <p className="text-base text-zinc-700 leading-relaxed">
                   {publication.abstract}
                 </p>
               </div>
