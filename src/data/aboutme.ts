@@ -19,14 +19,13 @@ export interface AboutMe {
 
 export const aboutMe: AboutMe = {
   name: "Hadi Khalaf",
-  title: "Ph.D. Student",
+  title: "CS Ph.D. Student",
   institution: "Harvard University",
   // Note that links work in the description
   description:
-    "I'm a first-year PhD student at Harvard SEAS. My research focuses on developing robust, trustworthy tools for LLM alignment.",
+    "I'm a first-year Computer Science PhD student at Harvard. My research focuses on developing robust and transparent tools for AI alignment.",
   email: "hadikhalaf@g.harvard.edu",
-  // imageUrl:
-   // "https://images.unsplash.com/photo-1581481615985-ba4775734a9b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  imageUrl: "image0.png",
   googleScholarUrl: "https://scholar.google.com/citations?user=IxeWGPAAAAAJ&hl=en&oi=ao",
   githubUsername: "hskhalaf",
   linkedinUsername: "hadikhalaf",
