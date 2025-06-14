@@ -42,7 +42,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             {aboutMe.altName}
           </p>
         )}
-        <p className="text-zinc-600 text-xs leading-relaxed tracking-wide uppercase mb-6">
+        {/* <p className="text-zinc-600 text-xs leading-relaxed tracking-wide uppercase mb-6">
           {aboutMe.title}
           <br />
           {aboutMe.institutionUrl ? (
@@ -57,7 +57,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           ) : (
             aboutMe.institution
           )}
-        </p>
+        </p> */}
         <div className="flex gap-6 mb-6">
           {aboutMe.blogUrl && (
             <a

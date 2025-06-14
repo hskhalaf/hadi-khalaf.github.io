@@ -1,7 +1,7 @@
 export interface AboutMe {
   name: string;
-  title: string;
-  institution: string;
+  // title: string;
+  // institution: string;
   description: string;
   email: string;
   imageUrl?: string;
@@ -19,8 +19,8 @@ export interface AboutMe {
 
 export const aboutMe: AboutMe = {
   name: "Hadi Khalaf",
-  title: "CS Ph.D. Student",
-  institution: "Harvard University",
+  //title: "CS Ph.D. Student",
+  // institution: "Harvard University",
   // Note that links work in the description
   description:
     "I'm a first-year Computer Science PhD student at Harvard. My research focuses on developing robust and transparent tools for AI alignment.",
