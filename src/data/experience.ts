@@ -4,6 +4,7 @@ export interface Experience {
   company: string;
   description?: string;
   advisor?: string;
+  advisorUrl?: string; // Add this line
   manager?: string;
   companyUrl?: string;
 }
@@ -16,5 +17,6 @@ export const experienceData: Experience[] = [
     description:
       "Developed tools for counterfactual estimation in binary games.",
     advisor: "Prof. Elie Tamer",
+    advisorUrl: "https://tamer.scholars.harvard.edu/", // Add this line
   },
 ];

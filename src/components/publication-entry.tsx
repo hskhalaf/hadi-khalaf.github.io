@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 import { Publication } from "@/data/publication";
 
 export function PublicationEntry({
@@ -7,6 +10,8 @@ export function PublicationEntry({
 }: {
   publication: Publication;
 }) {
+  const [isAbstractExpanded, setIsAbstractExpanded] = useState(false);
+
   return (
     <div className="flex flex-col sm:flex-row gap-6">
       {publication.imageUrl && (
@@ -36,10 +41,44 @@ export function PublicationEntry({
         </div>
         <h3 className="font-serif text-md mb-3">{publication.title}</h3>
         <p className="text-sm text-zinc-600 mb-4">{publication.authors}</p>
+        
+        {publication.tldr && (
+          <div className="mb-4">
+            <p className="text-sm italic text-zinc-600 mb-2">
+              <span className="font-medium text-zinc-700">TL;DR:</span> {publication.tldr}
+            </p>
+          </div>
+        )}
+
+        {publication.abstract && (
+          <div className="mb-4">
+            <button
+              onClick={() => setIsAbstractExpanded(!isAbstractExpanded)}
+              className="flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors duration-200"
+            >
+              <span className="font-medium">Abstract</span>
+              {isAbstractExpanded ? (
+                <ChevronUp size={16} />
+              ) : (
+                <ChevronDown size={16} />
+              )}
+            </button>
+            {isAbstractExpanded && (
+              <div className="mt-2 p-3 bg-zinc-50 rounded-md border-l-2 border-zinc-200">
+                <p className="text-sm text-zinc-700 leading-relaxed">
+                  {publication.abstract}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
         <div className="flex flex-row gap-6">
           {publication.paperUrl && (
             <a
               href={publication.paperUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
               <ArrowUpRight
@@ -52,6 +91,8 @@ export function PublicationEntry({
           {publication.codeUrl && (
             <a
               href={publication.codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
               <ArrowUpRight
@@ -64,6 +105,8 @@ export function PublicationEntry({
           {publication.bibtex && (
             <a
               href={publication.bibtex}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
             >
               <ArrowUpRight
@@ -74,11 +117,6 @@ export function PublicationEntry({
             </a>
           )}
         </div>
-        {publication.tldr && (
-          <p className="text-sm italic text-zinc-600 mt-4">
-            {publication.tldr}
-          </p>
-        )}
       </div>
     </div>
   );

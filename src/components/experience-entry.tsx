@@ -22,7 +22,18 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
         </h3>
         {experience.advisor && (
           <p className="text-sm text-zinc-600 leading-relaxed italic mt-2">
-            Advisor: {experience.advisor}
+            Advisor: {experience.advisorUrl ? (
+              <a
+                href={experience.advisorUrl}
+                className="hover:text-zinc-800 transition-colors underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {experience.advisor}
+              </a>
+            ) : (
+              experience.advisor
+            )}
           </p>
         )}
         {experience.manager && (
