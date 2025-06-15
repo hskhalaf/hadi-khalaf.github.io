@@ -17,11 +17,11 @@ import { questionsData } from "@/data/questions";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-[#FFFCF8]">
-      <div className="max-w-7xl mx-auto px-8 py-24">
+      <div className="max-w-6xl mx-auto px-6 py-12 lg:py-24">
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Column - Fixed width sidebar */}
-          <div className="col-span-3 space-y-12 mb-8 lg:mb-0">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Left Column - Sidebar (full width on mobile, fixed width on desktop) */}
+          <div className="w-full lg:col-span-3 space-y-8 lg:space-y-12">
             <div className="lg:sticky top-12 space-y-8">
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-zinc-100/50">
                 <ProfileSection aboutMe={aboutMe} />
@@ -29,8 +29,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Column - Much larger content area */}
-          <div className="col-span-9 space-y-20">
+          {/* Right Column - Content (full width on mobile, 75% on desktop) */}
+          <div className="w-full lg:col-span-8 space-y-16 lg:space-y-20 lg:max-w-none">
             {/* About section */}
             {aboutMe.description && (
               <section>
