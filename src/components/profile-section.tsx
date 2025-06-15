@@ -21,10 +21,10 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
   }
 
   return (
-    <div className="md:sticky top-12 flex flex-col gap-4 space-y-6">
+    <div className="lg:sticky top-12 flex flex-col gap-4 space-y-4 lg:space-y-6">
       {aboutMe.imageUrl && (
-        <div className="flex justify-center md:justify-start">
-          <div className="relative w-48 h-60 md:w-full md:max-w-[200px] aspect-[3/4]">
+        <div className="flex justify-center lg:justify-start">
+          <div className="relative w-32 h-40 lg:w-full lg:max-w-[200px] aspect-[3/4]">
             <Image
               src={aboutMe.imageUrl}
               alt={aboutMe.name}
@@ -35,8 +35,8 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           </div>
         </div>
       )}
-      <div className="text-center md:text-left">
-        <h1 className="font-sans text-xl font-medium tracking-wide mb-4">
+      <div className="text-center lg:text-left">
+        <h1 className="font-sans text-lg lg:text-xl font-medium tracking-wide mb-3 lg:mb-4">
           {aboutMe.name}
         </h1>
         {aboutMe.altName && (
@@ -44,14 +44,14 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             {aboutMe.altName}
           </p>
         )}
-        <div className="flex flex-col gap-3 mb-6">
+        <div className="flex flex-col gap-2 lg:gap-3 mb-4 lg:mb-6">
           {aboutMe.blogUrl && (
             <button
               onClick={() => window.open(aboutMe.blogUrl, '_blank')}
-              className="group inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 bg-transparent border-none cursor-pointer justify-center md:justify-start"
+              className="group inline-flex items-center gap-2 text-xs lg:text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 bg-transparent border-none cursor-pointer justify-center lg:justify-start"
             >
               <ArrowUpRight
-                size={14}
+                size={12}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
               <span className="tracking-wider uppercase">Blog</span>
@@ -60,25 +60,26 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           {aboutMe.cvUrl && (
             <button
               onClick={() => window.open(aboutMe.cvUrl, '_blank')}
-              className="group inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 bg-transparent border-none cursor-pointer justify-center md:justify-start"
+              className="group inline-flex items-center gap-2 text-xs lg:text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 bg-transparent border-none cursor-pointer justify-center lg:justify-start"
             >
               <ArrowUpRight
-                size={14}
+                size={12}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
               <span className="tracking-wider uppercase">CV</span>
             </button>
           )}
         </div>
-        <div className="space-y-3 text-center md:text-left">
+        <div className="space-y-2 lg:space-y-3 text-center lg:text-left">
           <a
             href={`mailto:${aboutMe.email}`}
-            className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 transition-colors justify-center md:justify-start"
+            className="inline-flex items-center gap-2 lg:gap-3 text-xs lg:text-sm text-zinc-600 hover:text-zinc-900 transition-colors justify-center lg:justify-start"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Mail size={14} />
-            <span className="break-all">{aboutMe.email}</span>
+            <Mail size={12} className="lg:hidden" />
+            <Mail size={14} className="hidden lg:block" />
+            <span className="break-all text-xs lg:text-sm">{aboutMe.email}</span>
           </a>
           {aboutMe.googleScholarUrl && (
             <div>
