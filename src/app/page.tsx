@@ -17,20 +17,20 @@ import { questionsData } from "@/data/questions";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-[#FFFCF8]">
-      <div className="max-w-screen-lg mx-auto px-8 py-24">
+      <div className="max-w-7xl mx-auto px-8 py-24">
         {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Left Column - Narrower sidebar */}
-          <div className="col-span-12 md:col-span-3 space-y-12 mb-8 md:mb-0">
-            <div className="md:sticky top-12 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left Column - Fixed width sidebar */}
+          <div className="col-span-3 space-y-12 mb-8 lg:mb-0">
+            <div className="lg:sticky top-12 space-y-8">
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-zinc-100/50">
                 <ProfileSection aboutMe={aboutMe} />
               </div>
             </div>
           </div>
 
-          {/* Right Column - Larger content area */}
-          <div className="col-span-12 md:col-span-9 space-y-20">
+          {/* Right Column - Much larger content area */}
+          <div className="col-span-9 space-y-20">
             {/* About section */}
             {aboutMe.description && (
               <section>
@@ -62,7 +62,22 @@ export default function Home() {
                       </section>
                     )
                   );
-      
+                case Section.Education:
+                  return (
+                    educationData.length > 0 && (
+                      <section key={sectionName}>
+                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
+                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Education</span>
+                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
+                        </h2>
+                        <div className="space-y-12">
+                          {educationData.map((education, index) => (
+                            <EducationEntry key={index} education={education} />
+                          ))}
+                        </div>
+                      </section>
+                    )
+                  );
                 case Section.Publication:
                   return (
                     publicationData.length > 0 && (
@@ -89,22 +104,6 @@ export default function Home() {
                             <div key={index}>
                               <PublicationEntry publication={publication} />
                             </div>
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
-                case Section.Education:
-                  return (
-                    educationData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
-                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Education</span>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
-                        </h2>
-                        <div className="space-y-12">
-                          {educationData.map((education, index) => (
-                            <EducationEntry key={index} education={education} />
                           ))}
                         </div>
                       </section>
