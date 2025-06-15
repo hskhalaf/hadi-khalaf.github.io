@@ -42,22 +42,6 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             {aboutMe.altName}
           </p>
         )}
-        {/* <p className="text-zinc-600 text-sm leading-relaxed tracking-wide uppercase mb-8">
-          {aboutMe.title}
-          <br />
-          {aboutMe.institutionUrl ? (
-            <a
-              href={aboutMe.institutionUrl}
-              className="hover:text-zinc-900 transition-colors duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {aboutMe.institution}
-            </a>
-          ) : (
-            aboutMe.institution
-          )}
-        </p> */}
         <div className="flex gap-6 mb-8">
           {aboutMe.blogUrl && (
             <a
@@ -74,18 +58,16 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             </a>
           )}
           {aboutMe.cvUrl && (
-            <a
-              href={aboutMe.cvUrl}
-              className="group inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => window.open(aboutMe.cvUrl, '_blank')}
+              className="group inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 bg-transparent border-none cursor-pointer"
             >
               <ArrowUpRight
                 size={14}
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
               <span className="tracking-wider uppercase">CV</span>
-            </a>
+            </button>
           )}
         </div>
         <div className="space-y-3">

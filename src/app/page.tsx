@@ -20,17 +20,17 @@ export default function Home() {
       <div className="max-w-screen-lg mx-auto px-8 py-24">
         {/* Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {/* Left Column - Fixed Info with background */}
-          <div className="col-span-12 md:col-span-4 space-y-12 mb-8 md:mb-0">
+          {/* Left Column - Narrower sidebar */}
+          <div className="col-span-12 md:col-span-3 space-y-12 mb-8 md:mb-0">
             <div className="md:sticky top-12 space-y-8">
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-sm border border-zinc-100/50">
+              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-zinc-100/50">
                 <ProfileSection aboutMe={aboutMe} />
               </div>
             </div>
           </div>
 
-          {/* Right Column - Scrolling Content with more spacing */}
-          <div className="col-span-12 md:col-span-7 md:col-start-6 space-y-20">
+          {/* Right Column - Larger content area */}
+          <div className="col-span-12 md:col-span-9 space-y-20">
             {/* About section */}
             {aboutMe.description && (
               <section>
@@ -93,8 +93,8 @@ export default function Home() {
                           <div className="relative">
                             <h3 className="font-serif text-xl text-blue-900 mb-2">Recent Research</h3>
                             <p className="text-blue-800/80 leading-relaxed">
-                              I am currently designing better ways to align and evaluate AI systems. 
-                              <span className="font-medium"> Click on any paper or email me to learn more!</span>
+                              Exploring AI alignment through the lens of discretion and reward hacking. 
+                              <span className="font-medium"> Click on any paper below to dive deeper.</span>
                             </p>
                           </div>
                         </div>
