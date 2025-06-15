@@ -62,22 +62,7 @@ export default function Home() {
                       </section>
                     )
                   );
-                case Section.Education:
-                  return (
-                    educationData.length > 0 && (
-                      <section key={sectionName}>
-                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
-                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Education</span>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
-                        </h2>
-                        <div className="space-y-12">
-                          {educationData.map((education, index) => (
-                            <EducationEntry key={index} education={education} />
-                          ))}
-                        </div>
-                      </section>
-                    )
-                  );
+      
                 case Section.Publication:
                   return (
                     publicationData.length > 0 && (
@@ -104,6 +89,22 @@ export default function Home() {
                             <div key={index}>
                               <PublicationEntry publication={publication} />
                             </div>
+                          ))}
+                        </div>
+                      </section>
+                    )
+                  );
+                case Section.Education:
+                  return (
+                    educationData.length > 0 && (
+                      <section key={sectionName}>
+                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
+                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Education</span>
+                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
+                        </h2>
+                        <div className="space-y-12">
+                          {educationData.map((education, index) => (
+                            <EducationEntry key={index} education={education} />
                           ))}
                         </div>
                       </section>
