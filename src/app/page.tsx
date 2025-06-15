@@ -94,7 +94,7 @@ export default function Home() {
                             <h3 className="font-serif text-xl text-blue-900 mb-2">Recent Research</h3>
                             <p className="text-blue-800/80 leading-relaxed">
                              Always happy to chat about research or potential collaborations! 
-                              <span className="font-medium"> Check out my recent work below.</span>
+                              <span className="font-medium"> Check out my recent work below. </span>
                             </p>
                           </div>
                         </div>
