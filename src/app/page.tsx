@@ -21,7 +21,7 @@ export default function Home() {
         {/* Grid Layout */}
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left Column - Sidebar (full width on mobile, fixed width on desktop) */}
-          <div className="w-full lg:col-span-3 space-y-8 lg:space-y-12">
+          <div className="w-full lg:col-span-4 space-y-8 lg:space-y-12">
             <div className="lg:sticky top-12 space-y-8">
               <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-zinc-100/50">
                 <ProfileSection aboutMe={aboutMe} />
@@ -30,7 +30,7 @@ export default function Home() {
           </div>
 
           {/* Right Column - Content (full width on mobile, 75% on desktop) */}
-          <div className="w-full lg:col-span-8 space-y-16 lg:space-y-20 lg:max-w-none">
+          <div className="w-full lg:col-span-7 space-y-16 lg:space-y-20 lg:max-w-none">
             {/* About section */}
             {aboutMe.description && (
               <section>
@@ -93,8 +93,8 @@ export default function Home() {
                           <div className="relative">
                             <h3 className="font-serif text-xl text-blue-900 mb-2">Recent Research</h3>
                             <p className="text-blue-800/80 leading-relaxed">
-                              Exploring AI alignment through the lens of discretion and reward hacking. 
-                              <span className="font-medium"> Click on any paper below to dive deeper.</span>
+                             Always happy to chat about research or potential collaborations! 
+                              <span className="font-medium"> Check out my recent work below .</span>
                             </p>
                           </div>
                         </div>
