@@ -5,6 +5,7 @@ export interface Publication {
   authors: string;
   paperUrl?: string;
   codeUrl?: string;
+  blogUrl?: string;
   bibtex?: string;
   tldr?: string;
   imageUrl?: string;
@@ -18,8 +19,9 @@ export const publicationData: Publication[] = [
     conference: "Preprint",
     title: "Inference-Time Reward Hacking in Large Language Models",
     authors: "Hadi Khalaf, Claudio Mayrink Verdun, Alex Oesterling, Himabindu Lakkaraju, Flavio du Pin Calmon",
-    paperUrl: "https://github.com/hskhalaf/hedging/blob/main/Inference%20time%20reward%20hacking%20in%20large%20language%20models.pdf",
+    paperUrl: "https://arxiv.org/abs/2506.19248",
     codeUrl: "https://github.com/hskhalaf/hedging",
+    blogUrl: "https://hskhalaf.github.io/hedging/",
     tldr: "We characterize reward hacking in inference-time alignment methods like Best-of-n, introduce an efficient approximation of the optimal RLHF solution, and propose a hedging strategy to mitigate hacking.",
     abstract: "A common paradigm to improve the performance of large language models is optimizing for a reward model. Reward models assign a numerical score to LLM outputs indicating, for example, which response would likely be preferred by a user or is most aligned with safety goals. However, reward models are never perfect. They inevitably function as proxies for complex desiderata such as correctness, helpfulness, and safety. By overoptimizing for a misspecified reward, we can subvert intended alignment goals and reduce overall performance -- a phenomenon commonly referred to as reward hacking. In this work, we characterize reward hacking in inference-time alignment and demonstrate when and how we can mitigate it by hedging on the proxy reward. We study this phenomenon under Best-of-n (BoN) and Soft-Best-of-n (SBoN), and we introduce Best-of-Poisson (BoP) that provides an efficient, near-exact approximation of the optimal reward-KL divergence policy at inference time. We show that the characteristic pattern of hacking as observed in practice (where the true reward first increases before declining) is an inevitable property of a broad class of inference-time mechanisms, including BoN and BoP. To counter this effect, hedging offers a tactical choice to avoid placing undue confidence in high but potentially misleading proxy reward signals. We introduce HedgeTune, an efficient algorithm to find the optimal inference-time parameter and avoid reward hacking. We demonstrate through experiments that hedging mitigates reward hacking and achieves superior distortion-reward tradeoffs with minimal computational overhead."
   },
