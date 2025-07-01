@@ -27,3 +27,469 @@ body {
 .sans {
   font-family: var(--font-inter), system-ui, sans-serif;
 }
+
+.draw-curve-anim {
+  animation: drawCurve 4s ease-in-out infinite;
+}
+@keyframes drawCurve {
+  0% {
+    stroke-dashoffset: 200;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 200;
+  }
+}
+
+/* --- Blog post hacking page styles start (moved from page.tsx) --- */
+.hacking-blog .header {
+    background: #ffffff;
+    border: 4px solid #000000;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 12px 12px 0px #000000;
+    position: relative;
+}
+.hacking-blog .header::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(45deg, #666666 0%, #666666 25%, transparent 25%, transparent 50%, #666666 50%, #666666 75%, transparent 75%);
+    background-size: 8px 8px;
+    z-index: -1;
+    opacity: 0.05;
+}
+.hacking-blog .title {
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    color: #000000;
+}
+.hacking-blog .subtitle {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 600;
+    color: #333333;
+    text-transform: lowercase;
+    margin-bottom: 30px;
+    border-left: 6px solid #333333;
+    padding-left: 20px;
+}
+.hacking-blog .authors {
+    background: #000000;
+    color: #ffffff;
+    padding: 15px 20px;
+    margin: 20px 0;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.hacking-blog .buttons {
+    display: flex;
+    gap: 0;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+.hacking-blog .btn {
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 15px 25px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    border: 3px solid #000000;
+    position: relative;
+}
+.hacking-blog .btn:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 0px #000000;
+}
+.hacking-blog .btn.secondary {
+    background: #ffffff;
+    color: #000000;
+}
+.hacking-blog .btn.secondary:hover {
+    background: #000000;
+    color: #ffffff;
+}
+.hacking-blog .btn.danger {
+    background: #333333;
+    border-color: #333333;
+}
+.hacking-blog .btn.danger:hover {
+    background: #ffffff;
+    color: #333333;
+}
+.hacking-blog .nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.hacking-blog .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    flex-wrap: wrap;
+}
+.hacking-blog .nav-item {
+    background: #000000;
+    color: #ffffff;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-right: 2px solid #ffffff;
+    transition: all 0.1s ease;
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+}
+.hacking-blog .nav-item:last-child {
+    border-right: none;
+}
+.hacking-blog .nav-item:hover, .hacking-blog .nav-item.active {
+    background: #ffffff;
+    color: #000000;
+    transform: none;
+}
+.hacking-blog .container {
+    margin: 40px 20px;
+}
+.hacking-blog .container.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 32px;
+}
+.hacking-blog .block {
+    background: #ffffff;
+    border: 4px solid #000000;
+    margin-bottom: 40px;
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    margin-top: 32px;
+}
+.hacking-blog .block.danger {
+    border-color: #cc4444;
+    box-shadow: 8px 8px 0px #cc4444;
+}
+.hacking-blog .block-header {
+    background: #000000;
+    color: #ffffff;
+    padding: 20px;
+    font-weight: 800;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+}
+.hacking-blog .block.danger .block-header {
+    background: #cc4444;
+}
+.hacking-blog .block-content {
+    padding: 30px;
+    background: #ffffff;
+    margin-bottom: 24px;
+}
+.hacking-blog .alert {
+    padding: 20px;
+    margin: 20px 0;
+    border: 4px solid;
+    font-weight: 600;
+}
+.hacking-blog .alert.danger {
+    background: #fff5f5;
+    border-color: #cc4444;
+    color: #cc4444;
+}
+.hacking-blog .highlight-text {
+    background: #eeeeee;
+    padding: 2px 6px;
+    font-weight: 600;
+    border: 1px solid #000000;
+}
+.hacking-blog .main-title.demo-title {
+    text-align: center;
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    color: #000000;
+}
+.hacking-blog .controls {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    position: static;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin-bottom: 40px;
+}
+.hacking-blog .controls button {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: var(--font-jetbrains-mono), monospace;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.hacking-blog .controls button:hover {
+    background: #333333;
+}
+.hacking-blog .controls button:disabled {
+    background: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+}
+.hacking-blog .chart-container {
+  background: #fff;
+  border-radius: 3px;
+  padding: 32px 32px 20px 32px;
+  border: 2px solid #000;
+  max-width: 900px;
+  box-shadow: 8px 8px 0px #000;
+  margin: 0 auto 32px auto;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hacking-blog .chart-container svg {
+  width: 100% !important;
+  height: auto !important;
+  max-width: 850px;
+  display: block;
+}
+
+.hacking-blog .grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 20px 0;
+}
+.hacking-blog .grid-item {
+  background: #fff;
+  border: 3px solid #000;
+  padding: 25px;
+  position: relative;
+  border-right: none;
+}
+.hacking-blog .grid-item:not(:last-child) {
+  border-right: 3px solid #000;
+}
+#bop-item.grid-item {
+  border: none !important;
+  border-top: 3px solid #000 !important;
+  border-bottom: 2px solid #000 !important;
+}
+@media (max-width: 600px) {
+  .hacking-blog .chart-container {
+    padding: 8px;
+  }
+  .hacking-blog .main-title.demo-title {
+    font-size: 1.3rem;
+  }
+}
+@media (max-width: 700px) {
+  .hacking-blog .block {
+    max-width: 100vw !important;
+    min-width: unset !important;
+    margin: 10px 0 !important;
+    padding: 10px !important;
+  }
+  .hacking-blog .header {
+    margin: 10px !important;
+    padding: 20px !important;
+  }
+  .hacking-blog .container {
+    margin: 10px 0 !important;
+    padding: 0 5px !important;
+  }
+  .hacking-blog .nav {
+    display: none !important;
+  }
+  .hacking-blog .block-content {
+    flex-direction: column !important;
+    padding: 20px 8px 20px 8px !important;
+  }
+  .hacking-blog .block-content > div:first-child {
+    padding-right: 0 !important;
+    margin-bottom: 20px;
+  }
+  .hacking-blog .block-content > div:last-child {
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hacking-blog .block-content svg {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 350px;
+    min-width: 220px;
+    min-height: 220px;
+    display: block;
+    margin: 0 auto;
+  }
+  .hacking-blog .hedgetune-box {
+    padding: 12px 8px 12px 8px;
+    font-size: 0.98rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .hedgetune-desktop { display: none !important; }
+  .hedgetune-mobile { display: block !important; width: 100%; box-sizing: border-box; margin-top: 20px; margin-bottom: 10px; text-align: center; }
+}
+@media (max-width: 900px) {
+  .hacking-blog .block {
+    max-width: 100vw;
+    min-width: unset;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .hacking-blog .chart-container {
+    padding: 12px 4px 12px 4px;
+    max-width: 100vw;
+  }
+  .hacking-blog .chart-container svg {
+    max-width: 100vw;
+    min-width: 0;
+  }
+  .hacking-blog .grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 10px;
+  }
+  .hacking-blog .grid-item {
+    border-right: none !important;
+    border-bottom: 2px solid #000 !important;
+    margin-bottom: 10px;
+  }
+  .hacking-blog .grid-item:last-child {
+    border-bottom: none !important;
+  }
+  .hacking-blog #bop-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+/* --- Blog post hacking page styles end --- */
+
+.hacking-blog .footer {
+  background: #000000;
+  color: #ffffff;
+  margin: 40px 20px 20px 20px;
+  border: 4px solid #000000;
+  padding: 40px;
+  text-align: center;
+}
+.hacking-blog .footer h2 {
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+.hacking-blog .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+.hacking-blog .footer-link {
+  background: #ffffff;
+  color: #000000;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: 2px solid #ffffff;
+  transition: all 0.1s ease;
+}
+.hacking-blog .footer-link:hover {
+  background: #000000;
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  .hacking-blog .footer {
+    margin: 20px 10px 10px 10px;
+    padding: 20px;
+  }
+  .hacking-blog .footer-links {
+    flex-direction: column;
+    gap: 0;
+  }
+  .hacking-blog .footer-link {
+    border-bottom: 2px solid #333333;
+    width: 100%;
+    text-align: center;
+  }
+  .hacking-blog .footer-link:last-child {
+    border-bottom: none;
+  }
+}
+
+/* HEDGETUNE box improvements */
+.hacking-blog .hedgetune-box {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 18px 18px 18px 18px;
+  margin: 24px 0 0 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #222;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.hedgetune-desktop { display: block; }
+.hedgetune-mobile { display: none; }
+@media (max-width: 700px) {
+  .hedgetune-desktop { display: none !important; }
+  .hedgetune-mobile { display: block !important; width: 100%; box-sizing: border-box; margin-top: 20px; margin-bottom: 10px; text-align: center; }
+}
