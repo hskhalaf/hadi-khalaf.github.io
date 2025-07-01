@@ -16,7 +16,7 @@ export interface Publication {
 export const publicationData: Publication[] = [
    {
     year: "2025",
-    conference: "Preprint",
+    conference: "ICML 2nd Workshop on Models of Human Feedback for AI Alignment",
     title: "Inference-Time Reward Hacking in Large Language Models",
     authors: "Hadi Khalaf, Claudio Mayrink Verdun, Alex Oesterling, Himabindu Lakkaraju, Flavio du Pin Calmon",
     paperUrl: "https://arxiv.org/abs/2506.19248",
