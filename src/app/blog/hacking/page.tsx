@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
@@ -5,7 +6,7 @@ import Head from "next/head";
 // Add this before the component to extend the Window type
 declare global {
   interface Window {
-    renderMathInElement?: (el: HTMLElement, opts: any) => void;
+    renderMathInElement?: (el: HTMLElement, opts: unknown) => void;
   }
 }
 
@@ -955,8 +956,9 @@ export default function HackingBlogPage() {
       <header className="header">
         <h1 className="title">INFERENCE-TIME REWARD HACKING <br /> IN LARGE LANGUAGE MODELS</h1>
         <div className="subtitle">when optimization goes wrong...</div>
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
         <div className="authors">
-          HADI KHALAF¹ • CLAUDIO MAYRINK VERDUN¹ • ALEX OESTERLING¹ • HIMABINDU LAKKARAJU¹'² • FLAVIO DU PIN CALMON¹
+          HADI KHALAF¹ • CLAUDIO MAYRINK VERDUN¹ • ALEX OESTERLING¹ • HIMABINDU LAKKARAJU¹&apos;² • FLAVIO DU PIN CALMON¹
           <br />¹HARVARD SEAS • ²HARVARD BUSINESS SCHOOL
         </div>
         <div className="buttons">
