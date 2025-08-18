@@ -17,9 +17,9 @@ import { questionsData } from "@/data/questions";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-[#FFFCF8]">
-      <div className="max-w-6xl mx-auto px-6 py-12 lg:py-24">
+      <div className="max-w-6xl mx-auto px-4 py-12 lg:py-24">
         {/* Grid Layout */}
-        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6 lg:gap-10">
           {/* Left Column - Sidebar (full width on mobile, fixed width on desktop) */}
           <div className="w-full lg:col-span-4 space-y-8 lg:space-y-12">
             <div className="lg:sticky top-12 space-y-8">
