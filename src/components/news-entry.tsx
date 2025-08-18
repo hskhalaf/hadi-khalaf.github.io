@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "lucide-react";
 import { News } from "@/data/news";
 
 export function NewsEntry({ news }: { news: News }) {
