@@ -32,9 +32,8 @@ export function PublicationEntry({
             {publication.conference} {publication.year}
           </p>
           {publication.award && (
-            <div className="group flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center shadow-md border border-amber-100/50 overflow-hidden hover:rotate-1 transition-all duration-300 max-w-[180px] sm:ml-auto">
-              <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/90 to-transparent" />
-              <p className="text-xs text-amber-700 font-medium relative">
+            <div className="flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center shadow-md border border-amber-100/50 max-w-[180px] sm:ml-auto hover:rotate-1 transition-transform duration-200">
+              <p className="text-xs text-amber-700 font-medium">
                 {publication.award}
               </p>
             </div>

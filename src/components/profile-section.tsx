@@ -63,7 +63,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
         <div className="space-y-2 lg:space-y-3 text-left">
           <a
             href={`mailto:${aboutMe.email}`}
-            className="inline-flex items-center gap-2 lg:gap-3 text-sm text-zinc-600 hover:text-zinc-900 transition-colors justify-start"
+            className="inline-flex items-center gap-2 lg:gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -75,7 +75,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             <div>
               <a
                 href={aboutMe.googleScholarUrl}
-                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 transition-colors justify-start"
+                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -88,7 +88,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             <div>
               <a
                 href={`https://twitter.com/${aboutMe.twitterUsername}`}
-                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 transition-colors justify-start"
+                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -100,7 +100,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             <div>
               <a
                 href={`https://github.com/${aboutMe.githubUsername}`}
-                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 transition-colors justify-start"
+                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -113,7 +113,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
             <div>
               <a
                 href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
-                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 transition-colors justify-start"
+                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
                 target="_blank"
                 rel="noopener noreferrer"
               >
