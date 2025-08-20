@@ -61,16 +61,11 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           )}
         </div>
         <div className="space-y-2 lg:space-y-3 text-left">
-          <a
-            href={`mailto:${aboutMe.email}`}
-            className="inline-flex items-center gap-2 lg:gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <div className="inline-flex items-center gap-2 lg:gap-3 text-sm text-zinc-600 justify-start">
             <Mail size={12} className="lg:hidden" />
             <Mail size={14} className="hidden lg:block" />
-            <span className="break-all text-sm">{aboutMe.email}</span>
-          </a>
+            <span className="break-all text-sm">hadikhalaf at g dot harvard dot edu</span>
+          </div>
           {aboutMe.googleScholarUrl && (
             <div>
               <a
@@ -122,6 +117,17 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
               </a>
             </div>
           )}
+          <div>
+            <a
+              href="https://open.spotify.com/playlist/2CbIKXWXTnLLCTno6X8LSz?si=af37cff7fe154bef"
+              className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="text-green-500">🎵</span>
+              <span className="break-all">My Spotify Playlist</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
