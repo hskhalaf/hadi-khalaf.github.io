@@ -7,13 +7,20 @@ import { Publication } from "@/data/publication";
 
 export function PublicationEntry({
   publication,
+  id,
+  isHighlighted = false,
 }: {
   publication: Publication;
+  id?: string;
+  isHighlighted?: boolean;
 }) {
   const [isAbstractExpanded, setIsAbstractExpanded] = useState(false);
 
   return (
-    <div className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm border border-zinc-100 hover:shadow-md hover:border-zinc-200 transition-all duration-300">
+    <div 
+      id={id}
+      className="bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-zinc-100 hover:border-zinc-200"
+    >
       <div className="flex flex-col sm:flex-row gap-6">
       {publication.imageUrl && (
         <div className="w-full sm:w-1/4 min-w-[160px] relative">

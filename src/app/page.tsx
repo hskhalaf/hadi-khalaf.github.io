@@ -17,6 +17,7 @@ import { Navigation } from "@/components/navigation";
 import { NavigationButtons } from "@/components/navigation-buttons";
 
 export default function Home() {
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-[#FFFCF8]">
       <Navigation />
@@ -54,7 +55,7 @@ export default function Home() {
                   return (
                     newsData.length > 0 && (
                       <section key={sectionName} id="news-section">
-                        <h2 className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
+                        <h2 id="news-title" className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
                           <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">News</span>
                           <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
                         </h2>
@@ -88,7 +89,7 @@ export default function Home() {
                   return (
                     publicationData.length > 0 && (
                       <section key={sectionName} id="research-section">
-                        <h2 className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
+                        <h2 id="research-title" className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
                           <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Research</span>
                           <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
                         </h2>
@@ -105,11 +106,27 @@ export default function Home() {
                         </div>
 
                         <div className="space-y-8">
-                          {publicationData.map((publication, index) => (
-                            <div key={index}>
-                              <PublicationEntry publication={publication} />
-                            </div>
-                          ))}
+                          {publicationData.map((publication, index) => {
+                            // Hardcode specific IDs for each publication
+                            let publicationId = '';
+                            if (publication.title.includes('reward')) {
+                              publicationId = 'reward-hacking-paper';
+                            } else if (publication.title.includes('Discretion')) {
+                              publicationId = 'discretion-paper';
+                            } else {
+                              publicationId = `publication-${index}`;
+                            }
+                            
+                            return (
+                              <div key={index}>
+                                <PublicationEntry 
+                                  publication={publication} 
+                                  id={publicationId}
+                                  isHighlighted={false}
+                                />
+                              </div>
+                            );
+                          })}
                         </div>
                       </section>
                     )

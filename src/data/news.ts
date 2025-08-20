@@ -14,7 +14,7 @@ export const newsData: News[] = [
   {
     date: "07/25",
     title: "",
-    description: "I am at ICML, presenting our work on reward hacking at the Models of Human Feedback for AI Alignment Workshop.",
+    description: "I am at ICML, presenting our work on <a href='#research-title' style='text-decoration: none; color: #2563eb;'>reward hacking<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> at the Models of Human Feedback for AI Alignment Workshop.",
   },
   {
     date: "06/25",
@@ -29,6 +29,11 @@ export const newsData: News[] = [
   {
     date: "04/25",
     title: "",
-    description: "Our paper on discretion in AI alignment was accepted to FAccT 2025!",
+    description: "Our paper on <a href='#research-title' style='text-decoration: none; color: #2563eb;'>discretion<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> in AI alignment was accepted to FAccT 2025!",
+  },
+  {
+    date: "03/25",
+    title: "",
+    description: "I am at Yale, giving a talk on <a href='#research-title' style='text-decoration: none; color: #2563eb;'>discretion<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> in AI alignment. Happy to share that this work got the <span class='best-paper-award' style='cursor: pointer;'>Best Paper Award</span> at the New England NLP workshop! You can check my slides <a href='/AI Alignment at your Discretion - 04 11 25.pdf' target='_blank' rel='noopener noreferrer' style='text-decoration: none; color: #2563eb;'>here</a>.",
   },
 ];

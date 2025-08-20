@@ -61,71 +61,63 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           )}
         </div>
         <div className="space-y-2 lg:space-y-3 text-left">
-          <div className="inline-flex items-center gap-2 lg:gap-3 text-sm text-zinc-600 justify-start">
-            <Mail size={12} className="lg:hidden" />
-            <Mail size={14} className="hidden lg:block" />
-            <span className="break-all text-sm">hadikhalaf at g dot harvard dot edu</span>
+          <div className="flex items-center gap-3 text-sm text-zinc-600">
+            <Mail size={14} />
+            <span className="break-all">hadikhalaf at g dot harvard dot edu</span>
           </div>
-          {aboutMe.googleScholarUrl && (
-            <div>
-              <a
-                href={aboutMe.googleScholarUrl}
-                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GraduationCap size={14} />
-                Google Scholar
-              </a>
-            </div>
-          )}
-          {aboutMe.twitterUsername && (
-            <div>
-              <a
-                href={`https://twitter.com/${aboutMe.twitterUsername}`}
-                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Twitter size={14} />@{aboutMe.twitterUsername}
-              </a>
-            </div>
-          )}
-          {aboutMe.githubUsername && (
-            <div>
-              <a
-                href={`https://github.com/${aboutMe.githubUsername}`}
-                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github size={14} />
-                <span className="break-all">github.com/{aboutMe.githubUsername}</span>
-              </a>
-            </div>
-          )}
-          {aboutMe.linkedinUsername && (
-            <div>
-              <a
-                href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
-                className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin size={14} />
-                <span className="break-all">linkedin.com/in/{aboutMe.linkedinUsername}</span>
-              </a>
-            </div>
-          )}
-          <div>
+          <div className="flex items-center gap-3 text-sm text-zinc-600">
+            <GraduationCap size={14} />
             <a
-              href="https://open.spotify.com/playlist/2CbIKXWXTnLLCTno6X8LSz?si=af37cff7fe154bef"
-              className="inline-flex items-center gap-3 text-sm text-zinc-600 hover:text-zinc-900 justify-start"
+              href={aboutMe.googleScholarUrl}
+              className="hover:text-blue-600 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <span className="text-green-500">🎵</span>
-              <span className="break-all">My Spotify Playlist</span>
+              Google Scholar
+            </a>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-zinc-600">
+            <Twitter size={14} />
+            <a
+              href={`https://twitter.com/${aboutMe.twitterUsername}`}
+              className="hover:text-blue-600 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @{aboutMe.twitterUsername}
+            </a>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-zinc-600">
+            <Github size={14} />
+            <a
+              href={`https://github.com/${aboutMe.githubUsername}`}
+              className="hover:text-blue-600 transition-colors break-all"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              github.com/{aboutMe.githubUsername}
+            </a>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-zinc-600">
+            <Linkedin size={14} />
+            <a
+              href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
+              className="hover:text-blue-600 transition-colors break-all"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              linkedin.com/in/{aboutMe.linkedinUsername}
+            </a>
+          </div>
+          <div className="flex items-center gap-3 text-sm text-zinc-600">
+            <span className="text-green-500 text-xs">🎵</span>
+            <a
+              href="https://open.spotify.com/playlist/2CbIKXWXTnLLCTno6X8LSz?si=af37cff7fe154bef"
+              className="hover:text-blue-600 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              My Spotify Playlist
             </a>
           </div>
         </div>
