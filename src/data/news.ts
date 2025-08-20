@@ -7,18 +7,28 @@ export interface News {
 
 export const newsData: News[] = [
   {
-    date: "08/11/25",
+    date: "08/25",
     title: "",
-    description: "I am at Princeton attending the Machine Learning Theory Summer School!",
+    description: "I am at Princeton attending the Machine Learning Theory Summer School.",
   },
   {
-    date: "07/12/25",
+    date: "07/25",
     title: "",
-    description: "I am at ICML, presenting my work on reward hacking at the Models of Human Feedback for AI Alignment Workshop!",
+    description: "I am at ICML, presenting our work on reward hacking at the Models of Human Feedback for AI Alignment Workshop.",
   },
   {
-    date: "06/16/25",
+    date: "06/25",
     title: "",
-    description: "I am at University of Minnesota attending the North America School of Information Theory!",
+    description: "I am at University of Minnesota attending the North America School of Information Theory.",
+  },
+  {
+    date: "05/25",
+    title: "",
+    description: "I just finished my first year of PhD at Harvard!",
+  },
+  {
+    date: "04/25",
+    title: "",
+    description: "Our paper on discretion in AI alignment was accepted to FAccT 2025!",
   },
 ];

@@ -24,7 +24,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
     <div className="lg:sticky top-12 flex flex-col gap-4 space-y-4 lg:space-y-6">
       {aboutMe.imageUrl && (
         <div className="flex justify-center lg:justify-start">
-          <div className="relative w-32 h-40 lg:w-full lg:max-w-[200px] aspect-[3/4]">
+          <div className="relative w-36 h-44 lg:w-full lg:max-w-[240px] aspect-[3/4]">
             <Image
               src={aboutMe.imageUrl}
               alt={aboutMe.name}
@@ -36,15 +36,29 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
         </div>
       )}
       <div className="text-center lg:text-left">
-        <h1 className="font-sans text-lg lg:text-xl font-medium tracking-wide mb-3 lg:mb-4">
-          {aboutMe.name}
-        </h1>
+        <div className="flex items-baseline gap-8 mb-2">
+          <h1 className="font-sans text-2xl lg:text-3xl font-medium tracking-wide">
+            {aboutMe.name}
+          </h1>
+          {aboutMe.cvUrl && (
+            <button
+              onClick={() => window.open(aboutMe.cvUrl, '_blank')}
+              className="group inline-flex items-center gap-1 text-xs lg:text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 bg-transparent border-none cursor-pointer"
+            >
+              <ArrowUpRight
+                size={12}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+              />
+              <span className="tracking-wider uppercase">CV</span>
+            </button>
+          )}
+        </div>
         {aboutMe.altName && (
-          <p className="text-zinc-600 text-lg leading-relaxed tracking-wide mb-6">
+          <p className="text-zinc-600 text-lg leading-relaxed tracking-wide mb-3">
             {aboutMe.altName}
           </p>
         )}
-        <div className="flex flex-col gap-2 lg:gap-3 mb-4 lg:mb-6">
+        <div className="flex flex-col gap-2 lg:gap-3 mb-3">
           {aboutMe.blogUrl && (
             <button
               onClick={() => window.open(aboutMe.blogUrl, '_blank')}
@@ -55,18 +69,6 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
                 className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
               />
               <span className="tracking-wider uppercase">Blog</span>
-            </button>
-          )}
-          {aboutMe.cvUrl && (
-            <button
-              onClick={() => window.open(aboutMe.cvUrl, '_blank')}
-              className="group inline-flex items-center gap-2 text-xs lg:text-sm text-zinc-500 hover:text-zinc-900 transition-colors duration-300 bg-transparent border-none cursor-pointer justify-center lg:justify-start"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">CV</span>
             </button>
           )}
         </div>

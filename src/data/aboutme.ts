@@ -1,3 +1,5 @@
+import { description } from './description';
+
 export interface AboutMe {
   name: string;
   // title: string;
@@ -22,8 +24,7 @@ export const aboutMe: AboutMe = {
   //title: "CS Ph.D. Student",
   // institution: "Harvard University",
   // Note that links work in the description
-  description:
-    "I'm a first-year Computer Science PhD student at Harvard. My research focuses on developing robust and scalable tools for AI post-training. I am very fortunate to be advised by Prof. Flavio du Pin Calmon.",
+  description: description,
   email: "hadikhalaf@g.harvard.edu",
   imageUrl: "/image0.jpeg",
   googleScholarUrl: "https://scholar.google.com/citations?user=IxeWGPAAAAAJ&hl=en&oi=ao",

@@ -27,12 +27,12 @@ export function PublicationEntry({
         </div>
       )}
       <div className="flex flex-col flex-1">
-        <div className="flex flex-row gap-4 items-center mb-2">
+        <div className="flex flex-row gap-4 items-center mb-2 relative">
           <p className="text-xs text-zinc-500">
             {publication.conference} {publication.year}
           </p>
           {publication.award && (
-            <div className="group flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center shadow-md border border-amber-100/50 relative overflow-hidden hover:rotate-1 transition-all duration-300">
+            <div className="group flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center shadow-md border border-amber-100/50 absolute right-0 top-0 overflow-hidden hover:rotate-1 transition-all duration-300 max-w-[180px]">
               <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/90 to-transparent" />
               <p className="text-xs text-amber-700 font-medium relative">
                 {publication.award}
@@ -40,35 +40,81 @@ export function PublicationEntry({
             </div>
           )}
         </div>
-        <h3 className="font-serif text-lg md:text-xl mb-3 leading-relaxed">{publication.title}</h3>
+        <h3 className="font-bold text-lg md:text-xl mb-3 leading-relaxed">{publication.title}</h3>
         <p 
           className="text-base text-zinc-600 mb-4"
           dangerouslySetInnerHTML={{ __html: publication.authors }}
         />
         
         {publication.tldr && (
-          <div className="mb-4">
-            <p className="text-base italic text-zinc-600 mb-2">
-              <span className="font-medium text-zinc-700">TL;DR:</span> {publication.tldr}
+          <div className="mb-2">
+            <p className="text-base text-zinc-600 mb-2">
+              <span className="font-bold text-zinc-700">TLDR&nbsp;&nbsp;</span> {publication.tldr}
             </p>
           </div>
         )}
 
         {publication.abstract && (
-          <div className="mb-4">
-            <button
-              onClick={() => setIsAbstractExpanded(!isAbstractExpanded)}
-              className="flex items-center gap-2 text-base text-zinc-600 hover:text-zinc-900 transition-colors duration-200"
-            >
-              <span className="font-medium">Abstract</span>
-              {isAbstractExpanded ? (
-                <ChevronUp size={16} />
-              ) : (
-                <ChevronDown size={16} />
+          <div className="mb-1">
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setIsAbstractExpanded(!isAbstractExpanded)}
+                className="flex items-center gap-2 text-base text-zinc-600 hover:text-zinc-900 transition-colors duration-200"
+              >
+                <span className="font-medium">Abstract</span>
+                {isAbstractExpanded ? (
+                  <ChevronUp size={16} />
+                ) : (
+                  <ChevronDown size={16} />
+                )}
+              </button>
+              
+              {publication.paperUrl && (
+                <a
+                  href={publication.paperUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                >
+                  <ArrowUpRight
+                    size={12}
+                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                  />
+                  <span className="tracking-wider uppercase">Paper</span>
+                </a>
               )}
-            </button>
+              {publication.codeUrl && (
+                <a
+                  href={publication.codeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                >
+                  <ArrowUpRight
+                    size={12}
+                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                  />
+                  <span className="tracking-wider uppercase">Code</span>
+                </a>
+              )}
+              {publication.blogUrl && (
+                <a
+                  href={publication.blogUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                >
+                  <ArrowUpRight
+                    size={12}
+                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+                  />
+                  <span className="tracking-wider uppercase">Blog Post</span>
+                </a>
+              )}
+            </div>
+            
             {isAbstractExpanded && (
-              <div className="mt-2 p-3 bg-zinc-50 rounded-md border-l-2 border-zinc-200">
+              <div className="mt-2 p-3 bg-blue-50/80 rounded-md border-l-2 border-blue-200">
                 <p className="text-base text-zinc-700 leading-relaxed">
                   {publication.abstract}
                 </p>
@@ -78,48 +124,6 @@ export function PublicationEntry({
         )}
 
         <div className="flex flex-row gap-6">
-          {publication.paperUrl && (
-            <a
-              href={publication.paperUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Paper</span>
-            </a>
-          )}
-          {publication.codeUrl && (
-            <a
-              href={publication.codeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Code</span>
-            </a>
-          )}
-          {publication.blogUrl && (
-            <a
-              href={publication.blogUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">Blog Post</span>
-            </a>
-          )}
           {publication.bibtex && (
             <a
               href={publication.bibtex}
