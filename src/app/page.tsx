@@ -1,3 +1,5 @@
+"use client";
+
 import { EducationEntry } from "@/components/education-entry";
 import { educationData } from "@/data/education";
 import { PublicationEntry } from "@/components/publication-entry";
@@ -13,11 +15,13 @@ import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
 import { QuestionsEntry } from "@/components/questions-entry";
 import { questionsData } from "@/data/questions";
+import { Navigation } from "@/components/navigation";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-[#FFFCF8]">
-      <div className="max-w-6xl mx-auto px-4 py-12 lg:py-24">
+      <Navigation />
+      <div className="max-w-6xl mx-auto px-4 pt-6 pb-12 lg:pt-8 lg:pb-24">
         {/* Grid Layout */}
         <div className="flex flex-col lg:grid lg:grid-cols-[3.5fr_8.5fr] gap-6 lg:gap-10">
           {/* Left Column - Sidebar (full width on mobile, fixed width on desktop) */}
@@ -38,6 +42,30 @@ export default function Home() {
                   className="text-lg leading-relaxed text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600"
                   dangerouslySetInnerHTML={{ __html: aboutMe.description }}
                 />
+                
+                {/* Quick Navigation Buttons */}
+                <div className="flex flex-wrap gap-3 mt-6">
+                  <button
+                    onClick={() => document.getElementById('news-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="inline-flex items-center px-4 py-2 bg-blue-50 hover:bg-blue-100 text-blue-700 hover:text-blue-800 rounded-lg border border-blue-200 hover:border-blue-300 transition-all duration-200 text-sm font-medium"
+                  >
+                    📰 News
+                  </button>
+                  <button
+                    onClick={() => document.getElementById('research-section')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="inline-flex items-center px-4 py-2 bg-green-50 hover:bg-green-100 text-green-700 hover:text-green-800 rounded-lg border border-green-200 hover:border-green-300 transition-all duration-200 text-sm font-medium"
+                  >
+                    🔬 Research
+                  </button>
+                  {aboutMe.cvUrl && (
+                    <button
+                      onClick={() => window.open(aboutMe.cvUrl, '_blank')}
+                      className="inline-flex items-center px-4 py-2 bg-purple-50 hover:bg-purple-100 text-purple-700 hover:text-purple-800 rounded-lg border border-purple-200 hover:border-purple-300 transition-all duration-200 text-sm font-medium"
+                    >
+                      📄 CV
+                    </button>
+                  )}
+                </div>
               </section>
             )}
 
@@ -47,7 +75,7 @@ export default function Home() {
                 case Section.News:
                   return (
                     newsData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} id="news-section">
                         <h2 className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
                           <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">News</span>
                           <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
@@ -81,7 +109,7 @@ export default function Home() {
                 case Section.Publication:
                   return (
                     publicationData.length > 0 && (
-                      <section key={sectionName}>
+                      <section key={sectionName} id="research-section">
                         <h2 className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
                           <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Research</span>
                           <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>

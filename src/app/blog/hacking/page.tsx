@@ -2,6 +2,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
+import { Navigation } from "@/components/navigation";
 
 // Add this before the component to extend the Window type
 declare global {
@@ -192,6 +193,7 @@ export default function HackingBlogPage() {
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
       </Head>
+      <Navigation />
       <div className="hacking-blog">
         {/* HEADER */}
         <header className="header">
