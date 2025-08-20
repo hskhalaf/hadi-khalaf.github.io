@@ -8,11 +8,9 @@ import { Publication } from "@/data/publication";
 export function PublicationEntry({
   publication,
   id,
-  isHighlighted = false,
 }: {
   publication: Publication;
   id?: string;
-  isHighlighted?: boolean;
 }) {
   const [isAbstractExpanded, setIsAbstractExpanded] = useState(false);
 

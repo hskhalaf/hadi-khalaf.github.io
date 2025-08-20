@@ -122,7 +122,6 @@ export default function Home() {
                                 <PublicationEntry 
                                   publication={publication} 
                                   id={publicationId}
-                                  isHighlighted={false}
                                 />
                               </div>
                             );
