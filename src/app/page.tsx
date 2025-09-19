@@ -60,12 +60,22 @@ export default function Home() {
                           <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
                         </h2>
                         <div className="space-y-6">
-                          {newsData.map((news, index) => (
+                          {newsData.slice(0, 5).map((news, index) => (
                             <div key={index}>
                               <NewsEntry news={news} />
                             </div>
                           ))}
                         </div>
+                        {newsData.length > 5 && (
+                          <div className="mt-8 text-center">
+                            <a 
+                              href="/news" 
+                              className="inline-flex items-center px-6 py-3 text-sm font-medium text-zinc-600 bg-white border border-zinc-200 rounded-lg hover:bg-zinc-50 hover:text-zinc-900 transition-colors duration-200"
+                            >
+                              Show All News ({newsData.length} total)
+                            </a>
+                          </div>
+                        )}
                       </section>
                     )
                   );

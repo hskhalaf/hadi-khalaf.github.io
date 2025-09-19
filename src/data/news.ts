@@ -7,6 +7,11 @@ export interface News {
 
 export const newsData: News[] = [
   {
+    date: "09/25",
+    title: "",
+    description: "I am at Amazon NYC presenting <a href='#research-title' style='text-decoration: none; color: #2563eb;'>reward hacking<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> at the NY Reinforcement Learning Workshop.",
+  },
+  {
     date: "08/25",
     title: "",
     description: "I am at Princeton attending the Machine Learning Theory Summer School.",
