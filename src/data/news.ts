@@ -9,6 +9,11 @@ export const newsData: News[] = [
   {
     date: "09/25",
     title: "",
+    description: "Just started my second year of PhD!",
+  },
+  {
+    date: "09/25",
+    title: "",
     description: "I am at Amazon NYC presenting <a href='#research-title' style='text-decoration: none; color: #2563eb;'>reward hacking<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> at the NY Reinforcement Learning Workshop.",
   },
   {

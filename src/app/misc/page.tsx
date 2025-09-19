@@ -25,9 +25,7 @@ export default function MiscPage() {
               {section.items && section.items.length > 0 && (
                 <ul className="space-y-2">
                   {section.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="text-sm text-zinc-600">
-                      {item}
-                    </li>
+                    <li key={itemIndex} className="text-sm text-zinc-600" dangerouslySetInnerHTML={{ __html: item }} />
                   ))}
                 </ul>
               )}

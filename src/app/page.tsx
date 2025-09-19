@@ -13,6 +13,7 @@ import { portfolioData } from "@/data/portfolio";
 import { sectionOrder, Section } from "@/data/section-order";
 import { QuestionsEntry } from "@/components/questions-entry";
 import { questionsData } from "@/data/questions";
+import Link from "next/link";
 import { Navigation } from "@/components/navigation";
 import { NavigationButtons } from "@/components/navigation-buttons";
 
@@ -68,12 +69,12 @@ export default function Home() {
                         </div>
                         {newsData.length > 5 && (
                           <div className="mt-8 text-center">
-                            <a 
+                            <Link 
                               href="/news" 
                               className="inline-flex items-center px-6 py-3 text-sm font-medium text-zinc-600 bg-white border border-zinc-200 rounded-lg hover:bg-zinc-50 hover:text-zinc-900 transition-colors duration-200"
                             >
                               Show All News ({newsData.length} total)
-                            </a>
+                            </Link>
                           </div>
                         )}
                       </section>

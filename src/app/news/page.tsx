@@ -1,8 +1,33 @@
+"use client";
+
 import { NewsEntry } from "@/components/news-entry";
 import { newsData } from "@/data/news";
 import { Navigation } from "@/components/navigation";
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function NewsPage() {
+  useEffect(() => {
+    const handleClick = (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
+        event.preventDefault();
+        const href = target.getAttribute('href');
+        if (href) {
+          // Redirect to home page with the hash
+          window.location.href = `/${href}`;
+        }
+      }
+    };
+
+    // Add event listener to handle internal navigation
+    document.addEventListener('click', handleClick);
+    
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-[#FFFCF8]">
       <Navigation />
@@ -22,12 +47,12 @@ export default function NewsPage() {
         </div>
 
         <div className="mt-12 text-center">
-          <a 
+          <Link 
             href="/" 
             className="inline-flex items-center px-6 py-3 text-sm font-medium text-zinc-600 bg-white border border-zinc-200 rounded-lg hover:bg-zinc-50 hover:text-zinc-900 transition-colors duration-200"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </main>
     </div>
