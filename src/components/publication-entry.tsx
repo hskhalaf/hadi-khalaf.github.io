@@ -37,7 +37,7 @@ export function PublicationEntry({
             {publication.conference} {publication.year}
           </p>
           {publication.award && (
-            <div className="flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center shadow-md border border-amber-100/50 max-w-[180px] sm:ml-auto hover:rotate-1 transition-transform duration-200">
+            <div className="flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center justify-center shadow-md border border-amber-100/50 max-w-[180px] sm:ml-auto hover:rotate-1 transition-transform duration-200">
               <p className="text-xs text-amber-700 font-medium">
                 {publication.award}
               </p>
