@@ -33,27 +33,29 @@ export function PublicationEntry({
       )}
       <div className="flex flex-col flex-1">
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center sm:justify-between mb-1">
-          <p className="text-xs text-zinc-500">
+          <p className="text-sm text-zinc-500">
             {publication.conference} {publication.year}
           </p>
+        </div>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
+          <h3 className="font-bold text-lg md:text-xl leading-relaxed flex-1">{publication.title}</h3>
           {publication.award && (
-            <div className="flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center justify-center shadow-md border border-amber-100/50 max-w-[180px] sm:ml-auto hover:rotate-1 transition-transform duration-200">
-              <p className="text-xs text-amber-700 font-medium">
+            <div className="flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center justify-center shadow-md border border-amber-100/50 hover:rotate-1 transition-transform duration-200 whitespace-nowrap sm:self-auto self-start">
+              <p className="text-xs text-amber-700 font-medium text-center">
                 {publication.award}
               </p>
             </div>
           )}
         </div>
-        <h3 className="font-bold text-lg md:text-xl mb-3 leading-relaxed">{publication.title}</h3>
         <p 
-          className="text-base text-zinc-600 mb-4"
+          className="text-base text-black mb-2"
           dangerouslySetInnerHTML={{ __html: publication.authors }}
         />
         
         {publication.tldr && (
-          <div className="mb-2">
-            <p className="text-base text-zinc-600 mb-2">
-              <span className="font-bold text-zinc-700">TLDR&nbsp;&nbsp;</span> {publication.tldr}
+          <div className="mb-4">
+            <p className="text-base text-black mb-1">
+              <span className="font-bold text-black">TLDR&nbsp;&nbsp;</span> {publication.tldr}
             </p>
           </div>
         )}
@@ -126,6 +128,7 @@ export function PublicationEntry({
             )}
           </div>
         )}
+
 
         <div className="flex flex-row gap-6">
           {publication.bibtex && (

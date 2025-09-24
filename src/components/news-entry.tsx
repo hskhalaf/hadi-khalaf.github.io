@@ -101,10 +101,10 @@ export function NewsEntry({ news }: { news: News }) {
       <div className="flex flex-row gap-6">
         <div className="flex flex-col flex-1">
           <div className="flex items-start gap-4">
-            <p className="text-sm text-zinc-500 mt-1">{news.date}</p>
+            <p className="text-sm text-gray-500 mt-1">{news.date}</p>
             <p 
               ref={descriptionRef}
-              className="text-base text-zinc-600 leading-relaxed [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600"
+              className="text-base text-black leading-relaxed [&_a]:underline [&_a]:text-blue-600 [&_a:hover]:text-blue-800"
               dangerouslySetInnerHTML={{ __html: news.description }}
             />
           </div>

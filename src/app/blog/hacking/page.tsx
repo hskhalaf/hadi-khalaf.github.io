@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Head from "next/head";
@@ -199,7 +198,6 @@ export default function HackingBlogPage() {
         <header className="header">
           <h1 className="title">INFERENCE-TIME REWARD HACKING <br /> IN LARGE LANGUAGE MODELS</h1>
           <div className="subtitle">when optimization goes wrong...</div>
-          {/* eslint-disable-next-line react/no-unescaped-entities */}
           <div className="authors">
             HADI KHALAF¹ • CLAUDIO MAYRINK VERDUN¹ • ALEX OESTERLING¹ • HIMABINDU LAKKARAJU¹&apos;² • FLAVIO DU PIN CALMON¹
             <br />¹HARVARD SEAS • ²HARVARD BUSINESS SCHOOL
@@ -320,14 +318,14 @@ export default function HackingBlogPage() {
                   <strong>HEDGETUNE:</strong> An efficient algorithm for finding the optimal inference-time parameter θ<sup>†</sup> for BoN, SBoN, and BoP.<br /> We only require <strong>samples</strong> from the proxy and true rewards!<br /><br />
                   1. Build score ψ(u, θ) for the chosen method<br />
                   2. Define residual R(θ) = E[ r_true(u) · ψ(u, θ) ]<br />
-                  3. Find θ<sup>†</sup>, the root of the residual R(θ) using bisection or Newton's method<br />
+                  3. Find θ<sup>†</sup>, the root of the residual R(θ) using bisection or Newton&apos;s method<br />
                 </div>
                 {/* Mobile HEDGETUNE box (shown only on mobile) */}
                 <div className="hedgetune-box hedgetune-mobile">
                   <strong>HEDGETUNE:</strong> An efficient algorithm for finding the optimal inference-time parameter θ<sup>†</sup> for BoN, SBoN, and BoP.<br /> We only require <strong>samples</strong> from the proxy and true rewards!<br /><br />
                   1. Build score ψ(u, θ) for the chosen method<br />
                   2. Define residual R(θ) = E[ r_true(u) · ψ(u, θ) ]<br />
-                  3. Find θ<sup>†</sup>, the root of the residual R(θ) using bisection or Newton's method<br />
+                  3. Find θ<sup>†</sup>, the root of the residual R(θ) using bisection or Newton&apos;s method<br />
                 </div>
               </div>
             </div>

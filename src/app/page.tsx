@@ -15,39 +15,71 @@ import { QuestionsEntry } from "@/components/questions-entry";
 import { questionsData } from "@/data/questions";
 import Link from "next/link";
 import { Navigation } from "@/components/navigation";
-import { NavigationButtons } from "@/components/navigation-buttons";
 
 export default function Home() {
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-zinc-50 to-[#FFFCF8]">
+    <div className="min-h-screen bg-white">
       <Navigation />
-      <div className="max-w-6xl mx-auto px-4 pt-6 pb-12 lg:pt-8 lg:pb-24">
-        {/* Grid Layout */}
-        <div className="flex flex-col lg:grid lg:grid-cols-[3.5fr_8.5fr] gap-6 lg:gap-10">
-          {/* Left Column - Sidebar (full width on mobile, fixed width on desktop) */}
-          <div className="w-full space-y-8 lg:space-y-12">
-            <div className="lg:sticky top-12 space-y-8">
-              <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm border border-zinc-100/50">
-                <ProfileSection aboutMe={aboutMe} />
+      <div className="max-w-4xl mx-auto px-6 pt-8 pb-16">
+        {/* Two Column Layout for About */}
+        <div className="space-y-12">
+          {aboutMe.description && (
+            <section className="mb-12" id="about">
+              <div className="flex flex-col lg:flex-row lg:gap-6">
+                {/* Main content */}
+                <div className="flex-1">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
+                    <h2 className="text-xl font-semibold text-black whitespace-nowrap">About Me</h2>
+                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm">
+                      <a
+                        href={aboutMe.googleScholarUrl}
+                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        google scholar
+                      </a>
+                      <a
+                        href={`https://github.com/${aboutMe.githubUsername}`}
+                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        github
+                      </a>
+                      <a
+                        href={`https://twitter.com/${aboutMe.twitterUsername}`}
+                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        twitter
+                      </a>
+                      <a
+                        href="https://open.spotify.com/playlist/2CbIKXWXTnLLCTno6X8LSz?si=af37cff7fe154bef"
+                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        spotify
+                      </a>
+                    </div>
+                  </div>
+                  <p
+                    className="text-base leading-relaxed text-black [&_a]:underline [&_a]:text-black [&_a:hover]:text-gray-600"
+                    dangerouslySetInnerHTML={{ __html: aboutMe.description }}
+                  />
+                  <p className="mt-3 text-base text-black">
+                    I am always happy to chat about research, if/how AI is going to kill us all, PhD admissions, and ice cream on hadikhalaf [at] g dot harvard dot edu.
+                  </p>
+                </div>
+                {/* Sidebar with profile info */}
+                <div className="lg:w-80 lg:flex-shrink-0 mt-3 lg:mt-0">
+                  <ProfileSection aboutMe={aboutMe} />
+                </div>
               </div>
-            </div>
-          </div>
-
-          {/* Right Column - Content (full width on mobile, 75% on desktop) */}
-          <div className="w-full space-y-8 lg:space-y-12 lg:max-w-none">
-            {/* About section */}
-            {aboutMe.description && (
-              <section>
-                <p
-                  className="text-lg leading-relaxed text-zinc-700 [&_a]:underline [&_a]:text-zinc-900 [&_a:hover]:text-zinc-600"
-                  dangerouslySetInnerHTML={{ __html: aboutMe.description }}
-                />
-                
-                {/* Quick Navigation Buttons */}
-                <NavigationButtons aboutMe={aboutMe} />
-              </section>
-            )}
+            </section>
+          )}
 
             {/* Map through sectionOrder to render sections in correct order */}
             {sectionOrder.map((sectionName) => {
@@ -56,27 +88,28 @@ export default function Home() {
                   return (
                     newsData.length > 0 && (
                       <section key={sectionName} id="news-section">
-                        <h2 id="news-title" className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
-                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">News</span>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
-                        </h2>
+                        <div className="flex items-center justify-between mb-4 border-b border-gray-300 pb-2">
+                          <h2 id="news-title" className="text-xl font-semibold text-black">
+                            Selected News
+                          </h2>
+                          {newsData.filter(news => news.showOnHomepage).length < newsData.length && (
+                            <Link 
+                              href="/news" 
+                              className="text-sm font-medium text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors duration-200"
+                            >
+                              Show All
+                            </Link>
+                          )}
+                        </div>
                         <div className="space-y-6">
-                          {newsData.slice(0, 5).map((news, index) => (
+                          {newsData
+                            .filter(news => news.showOnHomepage)
+                            .map((news, index) => (
                             <div key={index}>
                               <NewsEntry news={news} />
                             </div>
                           ))}
                         </div>
-                        {newsData.length > 5 && (
-                          <div className="mt-8 text-center">
-                            <Link 
-                              href="/news" 
-                              className="inline-flex items-center px-6 py-3 text-sm font-medium text-zinc-600 bg-white border border-zinc-200 rounded-lg hover:bg-zinc-50 hover:text-zinc-900 transition-colors duration-200"
-                            >
-                              Show All News ({newsData.length} total)
-                            </Link>
-                          </div>
-                        )}
                       </section>
                     )
                   );
@@ -84,9 +117,8 @@ export default function Home() {
                   return (
                     educationData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
-                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Education</span>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
+                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                          Education
                         </h2>
                         <div className="space-y-12">
                           {educationData.map((education, index) => (
@@ -100,21 +132,9 @@ export default function Home() {
                   return (
                     publicationData.length > 0 && (
                       <section key={sectionName} id="research-section">
-                        <h2 id="research-title" className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
-                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Research</span>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
+                        <h2 id="research-title" className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                          Publications
                         </h2>
-                        
-                        {/* Special attention-grabbing element for publications */}
-                        <div className="mb-6 p-4 bg-gradient-to-r from-blue-50/80 to-indigo-50/80 rounded-xl border border-blue-100/50 relative overflow-hidden">
-                          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-2xl"></div>
-                          <div className="relative">
-                            <h3 className="text-blue-800/80 leading-relaxed font-bold">
-                             Always happy to chat about research or potential collaborations! 
-                              <span className="font-medium"> Check out my recent work. </span>
-                            </h3>
-                          </div>
-                        </div>
 
                         <div className="space-y-8">
                           {publicationData.map((publication, index) => {
@@ -145,9 +165,8 @@ export default function Home() {
                   return (
                     experienceData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-12 relative">
-                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Experience</span>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
+                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                          Experience
                         </h2>
                         <div className="space-y-12">
                           {experienceData.map((experience, index) => (
@@ -164,9 +183,8 @@ export default function Home() {
                   return (
                     portfolioData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="text-base font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
-                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Portfolio</span>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
+                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                          Portfolio
                         </h2>
                         <div className="space-y-12">
                           {portfolioData.map((portfolio, index) => (
@@ -180,9 +198,8 @@ export default function Home() {
                   return (
                     questionsData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="text-sm font-semibold tracking-[0.3em] text-zinc-400 uppercase mb-8 relative">
-                          <span className="bg-gradient-to-br from-zinc-50 to-[#FFFCF8] pr-4">Questions I&apos;m Thinking About</span>
-                          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-zinc-200 to-transparent -z-10"></div>
+                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                          Questions I&apos;m Thinking About
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                           {questionsData.map((question, index) => (
@@ -196,7 +213,6 @@ export default function Home() {
                   return null;
               }
             })}
-          </div>
         </div>
       </div>
     </div>
