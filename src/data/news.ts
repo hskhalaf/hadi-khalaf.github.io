@@ -39,7 +39,7 @@ export const newsData: News[] = [
   {
     date: "07/25",
     title: "",
-    description: "I am at ICML, presenting our work on <a href='#research-title' style='text-decoration: none; color: #2563eb;'>reward hacking<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> at the Models of Human Feedback for AI Alignment Workshop.",
+    description: "I am at ICML, presenting our work on <a href='#research-title' style='text-decoration: none; color: #2563eb;'>reward hacking<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> at the Models of Human Feedback for AI Alignment Workshop. Grateful to have been awarded the Hudson River Trading travel grant.",
     showOnHomepage: true,
     categories: ["research", "travel"]
   },
