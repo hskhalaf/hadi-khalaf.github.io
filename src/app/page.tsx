@@ -69,9 +69,6 @@ export default function Home() {
                     className="text-base leading-relaxed text-black [&_a]:underline [&_a]:text-black [&_a:hover]:text-gray-600"
                     dangerouslySetInnerHTML={{ __html: aboutMe.description }}
                   />
-                  <p className="mt-3 text-base text-black">
-                    I am always happy to chat about research, if/how AI is going to kill us all, PhD admissions, and ice cream on hadikhalaf [at] g dot harvard dot edu.
-                  </p>
                 </div>
                 {/* Sidebar with profile info */}
                 <div className="lg:w-80 lg:flex-shrink-0 mt-3 lg:mt-0">

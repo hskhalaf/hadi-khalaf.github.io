@@ -11,7 +11,7 @@ export const newsData: News[] = [
   {
     date: "09/25",
     title: "",
-    description: "Extremely happy to share that our work on <a href='#research-title' style='text-decoration: none; color: #2563eb;'>reward hacking<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> in large language models was accepted to NeurIPS 2025 as a <strong>Spotlight Paper</strong>!",
+    description: "Extremely happy to share that our work on <a href='#research-title' style='text-decoration: none; color: #2563eb;'>reward hacking<span style='font-size: 0.7em; vertical-align: top; margin-left: 2px; opacity: 0.6;'>🔍</span></a> in large language models was accepted to NeurIPS 2025 as a <strong>Spotlight Paper</strong>! I am also thankful for the NeurIPS Scholar Award.",
     showOnHomepage: true,
     categories: ["publication", "award", "milestone", "research"]
   },
