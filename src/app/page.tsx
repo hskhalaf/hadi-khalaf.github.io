@@ -2,6 +2,8 @@ import { EducationEntry } from "@/components/education-entry";
 import { educationData } from "@/data/education";
 import { PublicationEntry } from "@/components/publication-entry";
 import { publicationData } from "@/data/publication";
+import { ProjectEntry } from "@/components/project-entry";
+import { projectData } from "@/data/projects";
 import { ProfileSection } from "@/components/profile-section";
 import { aboutMe } from "@/data/aboutme";
 import { NewsEntry } from "@/components/news-entry";
@@ -154,6 +156,27 @@ export default function Home() {
                               </div>
                             );
                           })}
+                        </div>
+                      </section>
+                    )
+                  );
+                case Section.Projects:
+                  return (
+                    projectData.length > 0 && (
+                      <section key={sectionName} id="projects-section">
+                        <h2 id="projects-title" className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                          Projects
+                        </h2>
+
+                        <div className="space-y-8">
+                          {projectData.map((project, index) => (
+                            <div key={index}>
+                              <ProjectEntry 
+                                project={project} 
+                                id={`project-${index}`}
+                              />
+                            </div>
+                          ))}
                         </div>
                       </section>
                     )
