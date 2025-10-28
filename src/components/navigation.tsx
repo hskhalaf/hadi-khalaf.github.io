@@ -7,6 +7,7 @@ export function Navigation() {
     { name: "About", href: "#about" },
     { name: "News", href: "#news-section" },
     { name: "Publications", href: "#research-section" },
+    { name: "Projects", href: "#projects-section" },
     { name: "CV", href: "/HadiKhalaf_CV.pdf" },
   ];
 
