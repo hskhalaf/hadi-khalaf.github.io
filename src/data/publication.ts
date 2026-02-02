@@ -40,7 +40,7 @@ export const publicationData: Publication[] = [
     year: "2025",
     conference: "ACM Conference on Fairness, Accountability, and Transparency (FAccT)",
     title: "AI Alignment at Your Discretion",
-    authors: "Maarten Buyl, <strong>HK</strong>, Claudio Mayrink Verdun, Lucas Monteiro Paes, Caio C. Vieira Machado, Flavio Calmon",
+    authors: "Maarten Buyl, <strong>HK</strong>, Claudio Mayrink Verdun, Lucas Monteiro Paes, Caio Vieira Machado, Flavio Calmon",
     paperUrl: "https://arxiv.org/abs/2502.10441",
     codeUrl: "https://github.com/maartenbuyl/alignment-discretionn",
     tldr: "We risk deploying unsafe AI systems if we ignore their discretion in applying alignment objectives.",
