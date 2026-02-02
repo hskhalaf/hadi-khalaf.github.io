@@ -14,6 +14,17 @@ export interface Publication {
 }
 
 export const publicationData: Publication[] = [
+  {
+    year: "2026",
+    conference: "Under review, ",
+    title: "Robust AI Evaluation through Maximal Lotteries",
+    authors: "<strong>HK</strong>, Serena Wang, Daniel Halpern, Itai Shapira, Flavio Calmon, Ariel Procaccia",
+    // paperUrl: "https://arxiv.org/abs/2506.19248",
+    // codeUrl: "https://github.com/hskhalaf/hedging",
+    tldr: "We introduce robust lotteries to aggregate heterogeneous preferences into reliable model evaluations.",
+    // award: "Spotlight Paper",
+    abstract: "The standard way to evaluate language models on subjective tasks is through pairwise comparisons: an annotator chooses the better of two model responses for a given prompt. These comparisons are then aggregated into a single ranking via the Bradley–Terry (BT) framework, forcing heterogeneous preferences into a total order and violating basic social-choice desiderata. In contrast, social choice theory provides an alternative approach called maximal lotteries, which aggregates pairwise preferences without imposing any assumptions on their structure. However, we show that maximal lotteries can be highly sensitive to heterogeneity among annotators and across prompts. We introduce robust lotteries, which optimize worst-case performance under plausible shifts in the preference data. On large-scale preference datasets, robust lotteries achieve more reliable win rate guarantees across the annotator distribution and recover a stable set of top performing models."
+  },
    {
     year: "2025",
     conference: "Neural Information Processing Systems (NeurIPS)",
