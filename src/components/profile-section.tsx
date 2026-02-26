@@ -13,9 +13,9 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
   }
 
   return (
-    <div className="flex flex-col items-center text-center space-y-2">
+    <div>
       {aboutMe.imageUrl && (
-        <div className="hidden lg:block relative w-44 h-64 sm:w-56 sm:h-72 rounded-xl overflow-hidden ring-1 ring-gray-200 shadow-sm">
+        <div className="relative w-48 h-64 sm:w-56 sm:h-72 rounded overflow-hidden border border-zinc-200">
           <Image
             src={aboutMe.imageUrl}
             alt={aboutMe.name}
@@ -25,7 +25,6 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           />
         </div>
       )}
-      {/* Name moved to About Me header */}
     </div>
   );
 }

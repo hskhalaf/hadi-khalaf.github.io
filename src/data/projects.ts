@@ -7,7 +7,7 @@ export interface Project {
 export const projectData: Project[] = [
   {
     title: "SafetyConflicts Dataset",
-    tldr: "We generate realistic user prompts that cause conflicts and tradeoffs between OpenAI's model specs. We also include reasoning traces and responses from three frontier reasoning models.",
+    tldr: "We generate realistic user prompts that cause conflicts and tradeoffs between OpenAI's model specs.",
     linkUrl: "https://huggingface.co/datasets/hadikhalaf/safetyconflicts"
   },
 ];

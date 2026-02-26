@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, Lora, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, Inter, Lora, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { aboutMe } from "@/data/aboutme";
 import { customMetadata } from "@/data/title-description";
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -42,11 +48,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${lora.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased`}
+        className={`${dmSans.variable} ${inter.variable} ${lora.variable} ${geistMono.variable} ${jetbrainsMono.variable} antialiased`}
       >
         <main className="">{children}</main>
         <footer className="border-t border-gray-200 bg-white">
-          <div className="max-w-4xl mx-auto px-6 py-8 text-center">
+          <div className="max-w-[900px] mx-auto px-6 py-6 text-center">
             <p className="text-sm text-gray-600">
               © {new Date().getFullYear()} {aboutMe.name}.
             </p>

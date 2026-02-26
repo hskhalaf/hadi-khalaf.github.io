@@ -16,66 +16,53 @@ import { sectionOrder, Section } from "@/data/section-order";
 import { QuestionsEntry } from "@/components/questions-entry";
 import { questionsData } from "@/data/questions";
 import Link from "next/link";
-import { Navigation } from "@/components/navigation";
+import { Fragment } from "react";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      <div className="max-w-4xl mx-auto px-6 pt-8 pb-16">
-        {/* Two Column Layout for About */}
+      <div className="max-w-[900px] mx-auto px-6 pt-6 pb-12">
         <div className="space-y-12">
           {aboutMe.description && (
             <section className="mb-12" id="about">
-              <div className="flex flex-col lg:flex-row lg:gap-6">
-                {/* Main content */}
-                <div className="flex-1">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4">
-                    <h2 className="text-xl font-semibold text-black whitespace-nowrap">About Me</h2>
-                    <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm">
-                      <a
-                        href={aboutMe.googleScholarUrl}
-                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        google scholar
-                      </a>
-                      <a
-                        href={`https://github.com/${aboutMe.githubUsername}`}
-                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        github
-                      </a>
-                      <a
-                        href={`https://twitter.com/${aboutMe.twitterUsername}`}
-                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        twitter
-                      </a>
-                      <a
-                        href="https://open.spotify.com/playlist/2CbIKXWXTnLLCTno6X8LSz?si=af37cff7fe154bef"
-                        className="text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        spotify
-                      </a>
-                    </div>
-                  </div>
-                  <p
-                    className="text-base leading-relaxed text-black [&_a]:underline [&_a]:text-black [&_a:hover]:text-gray-600"
-                    dangerouslySetInnerHTML={{ __html: aboutMe.description }}
-                  />
-                </div>
-                {/* Sidebar with profile info */}
-                <div className="lg:w-80 lg:flex-shrink-0 mt-3 lg:mt-0">
+              <div className="overflow-auto">
+                <div className="float-right ml-6 mb-4 mt-10 shrink-0">
                   <ProfileSection aboutMe={aboutMe} />
                 </div>
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-4">
+                  <h1 className="text-4xl font-semibold text-black">{aboutMe.name}</h1>
+                  <p className="text-sm text-zinc-600">
+                    {aboutMe.googleScholarUrl && (
+                      <>
+                        <a href={aboutMe.googleScholarUrl} className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                        {" · "}
+                      </>
+                    )}
+                    {aboutMe.githubUsername && (
+                      <>
+                        <a href={`https://github.com/${aboutMe.githubUsername}`} className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Github</a>
+                        {" · "}
+                      </>
+                    )}
+                    {aboutMe.twitterUsername && (
+                      <>
+                        <a href={`https://twitter.com/${aboutMe.twitterUsername}`} className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Twitter</a>
+                        {" · "}
+                      </>
+                    )}
+                    <a href="https://open.spotify.com/playlist/2CbIKXWXTnLLCTno6X8LSz?si=af37cff7fe154bef" className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Spotify Playlist</a>
+                    {aboutMe.cvUrl && (
+                      <>
+                        {" · "}
+                        <a href={aboutMe.cvUrl} className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">CV</a>
+                      </>
+                    )}
+                  </p>
+                </div>
+                <p
+                  className="text-[17px] leading-relaxed text-black [&_a]:underline [&_a]:text-black [&_a:hover]:text-gray-600"
+                  dangerouslySetInnerHTML={{ __html: aboutMe.description }}
+                />
               </div>
             </section>
           )}
@@ -87,14 +74,14 @@ export default function Home() {
                   return (
                     newsData.length > 0 && (
                       <section key={sectionName} id="news-section">
-                        <div className="flex items-center justify-between mb-4 border-b border-gray-300 pb-2">
+                        <div className="flex items-center justify-between mb-4 border-b border-zinc-200 pb-2">
                           <h2 id="news-title" className="text-xl font-semibold text-black">
                             Selected News
                           </h2>
                           {newsData.filter(news => news.showOnHomepage).length < newsData.length && (
                             <Link 
                               href="/news" 
-                              className="text-sm font-medium text-blue-600 hover:text-blue-800 underline hover:no-underline transition-colors duration-200"
+                              className="text-sm text-zinc-600 hover:text-black transition-colors"
                             >
                               Show All
                             </Link>
@@ -116,7 +103,7 @@ export default function Home() {
                   return (
                     educationData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-zinc-200 pb-2">
                           Education
                         </h2>
                         <div className="space-y-12">
@@ -130,41 +117,58 @@ export default function Home() {
                 case Section.Publication:
                   return (
                     publicationData.length > 0 && (
-                      <section key={sectionName} id="research-section">
-                        <h2 id="research-title" className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
-                          Publications
-                        </h2>
-
-                        <div className="space-y-8">
-                          {publicationData.map((publication, index) => {
-                            // Hardcode specific IDs for each publication
-                            let publicationId = '';
-                            if (publication.title.includes('reward')) {
-                              publicationId = 'reward-hacking-paper';
-                            } else if (publication.title.includes('Discretion')) {
-                              publicationId = 'discretion-paper';
-                            } else {
-                              publicationId = `publication-${index}`;
-                            }
-                            
-                            return (
-                              <div key={index}>
-                                <PublicationEntry 
-                                  publication={publication} 
-                                  id={publicationId}
-                                />
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </section>
+                      <Fragment key={sectionName}>
+                        {publicationData.filter((p) => p.isPreprint).length > 0 && (
+                          <section key="preprints" id="preprints-section">
+                            <h2 className="text-xl font-semibold mb-4 text-black border-b border-zinc-200 pb-2">
+                              Preprints
+                            </h2>
+                            <div className="space-y-8">
+                              {publicationData
+                                .filter((p) => p.isPreprint)
+                                .map((publication, index) => (
+                                  <div key={index}>
+                                    <PublicationEntry
+                                      publication={publication}
+                                      id={publication.title.includes("Lotteries") ? "lotteries-paper" : `preprint-${index}`}
+                                      hideVenue
+                                    />
+                                  </div>
+                                ))}
+                            </div>
+                          </section>
+                        )}
+                        {publicationData.filter((p) => !p.isPreprint).length > 0 && (
+                          <section key={sectionName} id="research-section">
+                            <h2 id="research-title" className="text-xl font-semibold mb-4 text-black border-b border-zinc-200 pb-2">
+                              Publications
+                            </h2>
+                            <div className="space-y-8">
+                              {publicationData
+                                .filter((p) => !p.isPreprint)
+                                .map((publication, index) => {
+                                  let publicationId = "";
+                                  if (publication.title.includes("reward")) publicationId = "reward-hacking-paper";
+                                  else if (publication.title.includes("Discretion")) publicationId = "discretion-paper";
+                                  else publicationId = `publication-${index}`;
+                                  return (
+                                    <div key={index}>
+                                      <PublicationEntry publication={publication} id={publicationId} />
+                                    </div>
+                                  );
+                                })}
+                            </div>
+                            <p className="text-sm text-zinc-500 mt-4">* indicates equal contribution</p>
+                          </section>
+                        )}
+                      </Fragment>
                     )
                   );
                 case Section.Projects:
                   return (
                     projectData.length > 0 && (
                       <section key={sectionName} id="projects-section">
-                        <h2 id="projects-title" className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                        <h2 id="projects-title" className="text-xl font-semibold mb-4 text-black border-b border-zinc-200 pb-2">
                           Projects
                         </h2>
 
@@ -185,7 +189,7 @@ export default function Home() {
                   return (
                     experienceData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-zinc-200 pb-2">
                           Experience
                         </h2>
                         <div className="space-y-12">
@@ -203,7 +207,7 @@ export default function Home() {
                   return (
                     portfolioData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-zinc-200 pb-2">
                           Portfolio
                         </h2>
                         <div className="space-y-12">
@@ -218,7 +222,7 @@ export default function Home() {
                   return (
                     questionsData.length > 0 && (
                       <section key={sectionName}>
-                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-gray-300 pb-2">
+                        <h2 className="text-xl font-semibold mb-4 text-black border-b border-zinc-200 pb-2">
                           Questions I&apos;m Thinking About
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

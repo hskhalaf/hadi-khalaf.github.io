@@ -20,6 +20,10 @@
 # production
 /build
 
+# previous design (kept locally only)
+/previous-design
+/redesign
+
 # misc
 .DS_Store
 *.pem

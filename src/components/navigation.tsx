@@ -12,9 +12,9 @@ export function Navigation() {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-4xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-center space-x-8">
+    <nav className="bg-white border-b border-zinc-200 sticky top-0 z-50">
+      <div className="max-w-[900px] mx-auto px-6 py-3">
+        <div className="flex items-center justify-start gap-6">
           {navItems.map((item) => (
             <Link
               key={item.name}

@@ -41,44 +41,23 @@ export function NewsEntry({ news }: { news: News }) {
             // Pop out specific publication
             if (href === '#research-title') {
               setTimeout(() => {
-                // Determine which publication to pop out based on the clicked text
                 let publicationId = '';
-                console.log('Clicked text content:', target.textContent);
-                console.log('Text includes discretion?', target.textContent?.includes('discretion'));
-                console.log('Text includes reward?', target.textContent?.includes('reward'));
-                
                 if (target.textContent?.includes('discretion')) {
                   publicationId = 'discretion-paper';
                 } else if (target.textContent?.includes('reward') || target.textContent?.includes('hacking')) {
                   publicationId = 'reward-hacking-paper';
                 }
-                
-                console.log('Selected publication ID:', publicationId);
-                
-                // Find and pop out the specific publication
                 if (publicationId) {
                   const publicationElement = document.getElementById(publicationId);
-                  
                   if (publicationElement) {
-                    // Add subtle pop-out effect - completely clean
-                    console.log('Applying pop-out effect to:', publicationId);
-                    console.log('Element before effect:', publicationElement.style.transform);
-                    
-                    // More visible shadow effect
                     publicationElement.style.transition = 'box-shadow 0.1s ease-out';
-                    publicationElement.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.25)'; // More visible shadow
-                    
-                    console.log('Element after effect:', publicationElement.style.boxShadow);
-                    console.log('Element found:', publicationElement);
-                    
-                    // Remove effect after 500ms (longer to see it)
+                    publicationElement.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.25)';
                     setTimeout(() => {
-                      console.log('Removing pop-out effect from:', publicationId);
                       publicationElement.style.boxShadow = '';
                     }, 500);
                   }
                 }
-              }, 0); // No delay - immediate effect
+              }, 0);
             }
           }
         }
@@ -101,10 +80,10 @@ export function NewsEntry({ news }: { news: News }) {
       <div className="flex flex-row gap-6">
         <div className="flex flex-col flex-1">
           <div className="flex items-start gap-4">
-            <p className="text-sm text-gray-500 mt-1">{news.date}</p>
+            <p className="text-sm text-zinc-500 mt-1 shrink-0">{news.date}</p>
             <p 
               ref={descriptionRef}
-              className="text-base text-black leading-relaxed [&_a]:underline [&_a]:text-blue-600 [&_a:hover]:text-blue-800"
+              className="text-[15px] text-black leading-relaxed [&_a]:underline [&_a]:text-zinc-700 [&_a:hover]:text-black"
               dangerouslySetInnerHTML={{ __html: news.description }}
             />
           </div>

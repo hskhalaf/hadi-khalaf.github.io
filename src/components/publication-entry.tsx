@@ -1,92 +1,82 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Publication } from "@/data/publication";
 
 export function PublicationEntry({
   publication,
   id,
+  hideVenue,
 }: {
   publication: Publication;
   id?: string;
+  hideVenue?: boolean;
 }) {
   const [isAbstractExpanded, setIsAbstractExpanded] = useState(false);
 
+  const venueDisplay = publication.venueShort ?? `${publication.conference} ${publication.year}`;
+
   return (
-    <div 
-      id={id}
-      className="bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-zinc-100 hover:border-zinc-200"
-    >
+    <div id={id} className="mb-8">
       <div className="flex flex-col sm:flex-row gap-6">
-      {publication.imageUrl && (
-        <div className="w-full sm:w-1/4 min-w-[160px] relative">
-          <Image
-            src={publication.imageUrl}
-            alt={publication.title}
-            width={160}
-            height={200}
-            className="rounded-lg transition-all duration-300"
-          />
-        </div>
-      )}
-      <div className="flex flex-col flex-1">
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center sm:justify-between mb-1">
-          <p className="text-sm text-zinc-500">
-            {publication.conference} {publication.year}
-          </p>
-        </div>
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
-          <h3 className="font-bold text-lg md:text-xl leading-relaxed flex-1">{publication.title}</h3>
-          {publication.award && (
-            <div className="flex px-2 py-1 bg-gradient-to-r from-amber-50 to-rose-50 rounded-md items-center justify-center shadow-md border border-amber-100/50 hover:rotate-1 transition-transform duration-200 whitespace-nowrap sm:self-auto self-start">
-              <p className="text-xs text-amber-700 font-medium text-center">
-                {publication.award}
-              </p>
-            </div>
-          )}
-        </div>
-        <p 
-          className="text-base text-black mb-2"
-          dangerouslySetInnerHTML={{ __html: publication.authors }}
-        />
-        
-        {publication.tldr && (
-          <div className="mb-4">
-            <p className="text-base text-black mb-1">
-              <span className="font-bold text-black">TLDR&nbsp;&nbsp;</span> {publication.tldr}
-            </p>
+        {publication.imageUrl && (
+          <div className="w-full sm:w-1/4 min-w-[140px] relative flex-shrink-0">
+            <Image
+              src={publication.imageUrl}
+              alt={publication.title}
+              width={140}
+              height={180}
+              className="rounded border border-zinc-200 object-cover"
+            />
           </div>
         )}
-
-        {publication.abstract && (
-          <div className="mb-1">
-            <div className="flex items-center gap-4">
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-wrap items-baseline gap-2 mb-1">
+            <h3 className="font-semibold text-[17px] leading-snug text-black">
+              {publication.title}
+            </h3>
+            {!hideVenue && venueDisplay && (
+              <span className="inline-block px-2 py-0.5 text-xs font-medium text-blue-800 bg-blue-50 border border-blue-200 rounded">
+                {venueDisplay}
+              </span>
+            )}
+            {publication.award && (
+              <span className="inline-block px-2 py-0.5 text-xs font-bold uppercase tracking-wide text-red-800 bg-red-50 border border-red-200/80 rounded">
+                {publication.award}
+              </span>
+            )}
+          </div>
+          <p
+            className="text-[15px] text-zinc-700 mb-0.5"
+            dangerouslySetInnerHTML={{ __html: publication.authors }}
+          />
+          {publication.tldr && (
+            <p className="text-[15px] leading-relaxed mt-1.5 mb-2 ml-2 pl-3 pr-4 py-1.5 border-l-2 border-zinc-500 bg-zinc-200/40 max-w-full whitespace-nowrap overflow-x-auto">
+              <span className="text-xs font-bold uppercase tracking-wider text-zinc-700">TLDR</span>
+              <span className="font-medium text-zinc-800 pl-3">{publication.tldr}</span>
+            </p>
+          )}
+          <div className="flex flex-wrap items-center gap-3 text-sm mt-2">
+            {publication.abstract && (
               <button
                 onClick={() => setIsAbstractExpanded(!isAbstractExpanded)}
-                className="flex items-center gap-2 text-base text-zinc-600 hover:text-zinc-900 transition-colors duration-200"
+                className="flex items-center gap-1 text-zinc-600 hover:text-black transition-colors"
               >
-                <span className="font-medium">Abstract</span>
-                {isAbstractExpanded ? (
-                  <ChevronUp size={16} />
-                ) : (
-                  <ChevronDown size={16} />
-                )}
+                {isAbstractExpanded ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+                Abstract
               </button>
-              
+            )}
+            <div className="flex flex-wrap gap-4 font-semibold">
               {publication.paperUrl && (
                 <a
                   href={publication.paperUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                  className="text-zinc-700 hover:text-black transition-colors"
                 >
-                  <ArrowUpRight
-                    size={12}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-                  />
-                  <span className="tracking-wider uppercase">Paper</span>
+                  [arxiv]
                 </a>
               )}
               {publication.codeUrl && (
@@ -94,13 +84,9 @@ export function PublicationEntry({
                   href={publication.codeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                  className="text-zinc-700 hover:text-black transition-colors"
                 >
-                  <ArrowUpRight
-                    size={12}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-                  />
-                  <span className="tracking-wider uppercase">Code</span>
+                  [code]
                 </a>
               )}
               {publication.blogUrl && (
@@ -108,46 +94,30 @@ export function PublicationEntry({
                   href={publication.blogUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+                  className="text-zinc-700 hover:text-black transition-colors"
                 >
-                  <ArrowUpRight
-                    size={12}
-                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-                  />
-                  <span className="tracking-wider uppercase">Blog Post</span>
+                  [blog]
+                </a>
+              )}
+              {publication.bibtex && (
+                <a
+                  href={publication.bibtex}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-700 hover:text-black transition-colors"
+                >
+                  [bibtex]
                 </a>
               )}
             </div>
-            
-            {isAbstractExpanded && (
-              <div className="mt-2 p-3 bg-blue-50/80 rounded-md border-l-2 border-blue-200">
-                <p className="text-base text-zinc-700 leading-relaxed">
-                  {publication.abstract}
-                </p>
-              </div>
-            )}
           </div>
-        )}
-
-
-        <div className="flex flex-row gap-6">
-          {publication.bibtex && (
-            <a
-              href={publication.bibtex}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
-            >
-              <ArrowUpRight
-                size={12}
-                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-              />
-              <span className="tracking-wider uppercase">BibTeX</span>
-            </a>
+          {publication.abstract && isAbstractExpanded && (
+            <p className="mt-2 text-[15px] text-zinc-700 leading-relaxed border-l-2 border-zinc-200 pl-3 py-2 pr-3 rounded-r shadow-sm bg-zinc-50/50">
+              {publication.abstract}
+            </p>
           )}
         </div>
       </div>
-    </div>
     </div>
   );
 }
