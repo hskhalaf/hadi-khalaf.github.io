@@ -9,6 +9,13 @@ export interface News {
 
 export const newsData: News[] = [
   {
+    date: "04/26",
+    title: "",
+    description: "I passed my quals! I'd love to thank my advisor Flavio and the committee members Boaz Barak, Ariel Procaccia, and Milind Tambe.",
+    showOnHomepage: true,
+    categories: ["milestone"]
+  },
+  {
     date: "02/26",
     title: "",
     description: "I will be interning at Microsoft this summer, working on agentic systems!",
