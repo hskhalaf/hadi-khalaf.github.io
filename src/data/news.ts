@@ -9,6 +9,13 @@ export interface News {
 
 export const newsData: News[] = [
   {
+    date: "05/26",
+    title: "",
+    description: "Our paper on <a href='https://arxiv.org/pdf/2602.21297' style='text-decoration: none; color: #2563eb;'>robust AI evaluation</a> was accepted to ICML 2026! I also presented this work at the ICLR Algorithmic Fairness Workshop in Rio.",
+    showOnHomepage: true,
+    categories: ["publication"]
+  },
+  {
     date: "04/26",
     title: "",
     description: "I passed my quals! I'd love to thank my advisor Flavio and the committee members Boaz Barak, Ariel Procaccia, and Milind Tambe.",
@@ -26,7 +33,7 @@ export const newsData: News[] = [
     date: "02/26",
     title: "",
     description: "New preprint on <a href='https://arxiv.org/pdf/2602.21297' style='text-decoration: none; color: #2563eb;'>robust AI evaluation</a> using social choice theory. Work done with the great Serena Wang, Daniel Halpern, Itai Shapira, Flavio Calmon, and Ariel Procaccia.",
-    showOnHomepage: true,
+    showOnHomepage: false,
     categories: ["publication"]
   },
   {
