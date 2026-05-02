@@ -19,8 +19,8 @@ export interface Publication {
 export const publicationData: Publication[] = [
   {
     year: "2026",
-    conference: "Under review, ",
-    isPreprint: true,
+    conference: "International Conference on Machine Learning (ICML)",
+    venueShort: "ICML 2026",
     title: "Robust AI Evaluation through Maximal Lotteries",
     authors: "<strong>HK</strong>, Serena Wang, Daniel Halpern, Itai Shapira, Flavio Calmon, Ariel Procaccia",
     paperUrl: "https://arxiv.org/pdf/2602.21297",
