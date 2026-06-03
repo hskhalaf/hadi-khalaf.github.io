@@ -8,10 +8,17 @@ export interface News {
 }
 
 export const newsData: News[] = [
+    {
+    date: "06/26",
+    title: "",
+    description: "I was awarded the Kempner Institute Graduate Fellowship! This will support my remaining years at Harvard.",
+    showOnHomepage: true,
+    categories: ["award"]
+  },
   {
     date: "05/26",
     title: "",
-    description: "Our paper on <a href='https://arxiv.org/pdf/2602.21297' style='text-decoration: none; color: #2563eb;'>robust AI evaluation</a> was accepted to ICML 2026! I also presented this work at the ICLR Algorithmic Fairness Workshop in Rio.",
+    description: "Our paper on <a href='https://arxiv.org/pdf/2602.21297' style='text-decoration: none; color: #2563eb;'>robust AI evaluation</a> was accepted to ICML! See you in Seoul :)",
     showOnHomepage: true,
     categories: ["publication"]
   },
