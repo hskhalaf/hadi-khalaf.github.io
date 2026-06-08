@@ -23,13 +23,6 @@ export const newsData: News[] = [
     categories: ["publication"]
   },
   {
-    date: "05/26",
-    title: "",
-    description: "Our paper on <a href='https://arxiv.org/pdf/2602.21297' style='text-decoration: none; color: #2563eb;'>robust AI evaluation</a> was accepted to ICML 2026! I also presented this work at the ICLR Algorithmic Fairness Workshop in Rio.",
-    showOnHomepage: true,
-    categories: ["publication"]
-  },
-  {
     date: "04/26",
     title: "",
     description: "I passed my quals! I'd love to thank my advisor Flavio and the committee members Boaz Barak, Ariel Procaccia, and Milind Tambe.",
