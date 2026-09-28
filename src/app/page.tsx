@@ -31,29 +31,25 @@ export default function Home() {
                 </div>
                 <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-4">
                   <h1 className="text-4xl font-semibold text-black">{aboutMe.name}</h1>
-                  <p className="text-sm text-zinc-600">
+                  <p className="flex flex-wrap gap-x-3 text-sm text-zinc-600">
                     {aboutMe.googleScholarUrl && (
                       <>
                         <a href={aboutMe.googleScholarUrl} className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-                        {" · "}
                       </>
                     )}
                     {aboutMe.githubUsername && (
                       <>
                         <a href={`https://github.com/${aboutMe.githubUsername}`} className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Github</a>
-                        {" · "}
                       </>
                     )}
                     {aboutMe.twitterUsername && (
                       <>
                         <a href={`https://twitter.com/${aboutMe.twitterUsername}`} className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Twitter</a>
-                        {" · "}
                       </>
                     )}
                     <a href="https://open.spotify.com/playlist/2CbIKXWXTnLLCTno6X8LSz?si=af37cff7fe154bef" className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">Spotify Playlist</a>
                     {aboutMe.cvUrl && (
                       <>
-                        {" · "}
                         <a href={aboutMe.cvUrl} className="hover:text-black transition-colors" target="_blank" rel="noopener noreferrer">CV</a>
                       </>
                     )}

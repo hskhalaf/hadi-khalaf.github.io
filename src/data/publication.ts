@@ -19,6 +19,16 @@ export interface Publication {
 export const publicationData: Publication[] = [
   {
     year: "2026",
+    conference: "Preprint",
+    title: "Circuits of LLM Classifiers",
+    authors: "Sajani Vithana*, <strong>HK</strong>*, Kunal Talreja, Haewon Jeong, Viveck R. Cadambe, Flavio Calmon",
+    paperUrl: "/LLMCircuits.pdf",
+    tldr: "We combine LLM classifiers as circuits that best allocate inference among them at any given expected cost.",
+    abstract: "Language models make it easy to build classifiers by simply prompting a model with the sample to classify. However, their predictions are neither deterministic nor uniformly reliable across samples. How can we combine predictions from different models to improve reliability? We view LLM classifiers as noisy measurement instruments of an underlying target label. Our goal is to maximize average classification accuracy at a given average query cost. To this end, we introduce circuits that organize LLM classifiers into an adaptive sequence of queries and decisions. We then characterize the optimal circuit, obtain the fundamental limits of achievable accuracy, and provide practical insights on realizing the optimal circuit. Across safety, healthcare, political science and preference benchmarks, our method improves the cost–accuracy frontier over routing and cascading baselines.",
+    isPreprint: true
+  },
+  {
+    year: "2026",
     conference: "International Conference on Machine Learning (ICML)",
     venueShort: "ICML 2026",
     title: "Robust AI Evaluation through Maximal Lotteries",
@@ -26,7 +36,6 @@ export const publicationData: Publication[] = [
     paperUrl: "https://arxiv.org/pdf/2602.21297",
     codeUrl: "https://github.com/hskhalaf/Robust-AI-Evaluation-through-Maximal-Lotteries",
     tldr: "We introduce robust lotteries to aggregate heterogeneous preferences into reliable model evaluations.",
-    // award: "Spotlight Paper",
     abstract: "The standard way to evaluate language models on subjective tasks is through pairwise comparisons: an annotator chooses the ''better'' of two responses to a prompt. Leaderboards aggregate these comparisons into a single Bradley-Terry (BT) ranking, forcing heterogeneous preferences into a total order and violating basic social-choice desiderata. In contrast, social choice theory provides an alternative approach called maximal lotteries, which aggregates pairwise preferences without imposing any assumptions on their structure. However, we show that maximal lotteries are highly sensitive to preference heterogeneity and can favor models that severely underperform on specific tasks or user subpopulations. We introduce robust lotteries that optimize worst-case performance under plausible shifts in the preference data. On large-scale preference datasets, robust lotteries provide more reliable win rate guarantees across the annotator distribution and recover a stable set of top-performing models. By moving from rankings to pluralistic sets of winners, robust lotteries offer a principled step toward an ecosystem of complementary AI systems that serve the full spectrum of human preferences."
   },
    {

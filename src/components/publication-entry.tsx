@@ -76,7 +76,7 @@ export function PublicationEntry({
                   rel="noopener noreferrer"
                   className="text-zinc-700 hover:text-black transition-colors"
                 >
-                  [arxiv]
+                  {publication.paperUrl.includes("arxiv.org") ? "[arxiv]" : "[pdf]"}
                 </a>
               )}
               {publication.codeUrl && (
