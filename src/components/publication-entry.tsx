@@ -89,6 +89,16 @@ export function PublicationEntry({
                   [code]
                 </a>
               )}
+              {publication.websiteUrl && (
+                <a
+                  href={publication.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-700 hover:text-black transition-colors"
+                >
+                  [website]
+                </a>
+              )}
               {publication.blogUrl && (
                 <a
                   href={publication.blogUrl}

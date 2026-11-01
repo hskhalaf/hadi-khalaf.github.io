@@ -8,6 +8,7 @@ export interface Publication {
   paperUrl?: string;
   codeUrl?: string;
   blogUrl?: string;
+  websiteUrl?: string;
   bibtex?: string;
   tldr?: string;
   imageUrl?: string;
@@ -23,8 +24,9 @@ export const publicationData: Publication[] = [
     title: "Circuits of LLM Classifiers",
     authors: "<strong>HK</strong>*, Sajani Vithana*, Kunal Talreja, Haewon Jeong, Viveck R. Cadambe, Flavio Calmon",
     paperUrl: "https://arxiv.org/pdf/2610.30076",
+    websiteUrl: "https://infotheorylab.github.io/LLM-circuits/",
     tldr: "We combine LLM classifiers as circuits that best allocate inference among them at any given expected cost.",
-    abstract: "Language models make it easy to build classifiers by simply prompting a model with the sample to classify. However, their predictions are neither deterministic nor uniformly reliable across samples. How can we combine predictions from different models to improve reliability? We view LLM classifiers as noisy measurement instruments of an underlying target label. Our goal is to maximize average classification accuracy at a given average query cost. To this end, we introduce circuits that organize LLM classifiers into an adaptive sequence of queries and decisions. We then characterize the optimal circuit, obtain the fundamental limits of achievable accuracy, and provide practical insights on realizing the optimal circuit. Across safety, healthcare, political science and preference benchmarks, our method improves the cost–accuracy frontier over routing and cascading baselines.",
+    abstract: "Language models make it easy to build classifiers by simply prompting a model with the sample to classify. However, their predictions are neither deterministic nor uniformly reliable across samples. How can we combine predictions from different models to improve reliability? We view LLM classifiers as noisy measurement instruments of an underlying target label. Our goal is to maximize average classification accuracy at a given average query cost. To this end, we introduce circuits that organize LLM classifiers into an adaptive sequence of queries and decisions. We then characterize the optimal circuit, obtain the fundamental limits of achievable accuracy, and provide practical insights on realizing the optimal circuit. Across seven classification tasks spanning safety, health, political science, human preference, agent evaluation, decision-making and reasoning, our method improves the cost–accuracy frontier over routing and cascading baselines.",
     isPreprint: true
   },
   {
